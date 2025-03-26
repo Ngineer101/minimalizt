@@ -3,6 +3,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+// Get the latest 3 blog posts
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
 ---
 
 <!doctype html>
@@ -13,37 +20,190 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero-section">
+				<h1 class="sr-only">Welcome to Minimalizt Dev</h1>
+				<img src="/hero.jpeg" alt="Hero Image" class="hero-image" />
+			</section>
+
+			<section class="latest-posts">
+				<h2>Latest Posts</h2>
+				<div class="post-grid">
+					{
+						posts.map((post) => (
+							<div class="post-card">
+								<a href={`/blog/${post.id}/`}>
+									<img 
+										src={post.data.heroImage} 
+										alt={post.data.title} 
+										class="post-image" 
+									/>
+									<div class="post-content">
+										<h3 class="post-title">{post.data.title}</h3>
+										<p class="post-date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+										<p class="post-excerpt">{post.data.description}</p>
+									</div>
+								</a>
+							</div>
+						))
+					}
+				</div>
+				<div class="view-all">
+					<a href="/blog/" class="view-all-button">View All Posts</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	main {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 2rem;
+	}
+
+	.hero-section {
+		margin-bottom: 3rem;
+		position: relative;
+	}
+
+	.hero-image {
+		width: 100%;
+		height: 350px;
+		object-fit: cover;
+		mask-image: linear-gradient(
+			to bottom,
+			transparent 0%,
+			black 10%,
+			black 90%,
+			transparent 100%
+		);
+		-webkit-mask-image: linear-gradient(
+			to bottom,
+			transparent 0%,
+			black 10%,
+			black 90%,
+			transparent 100%
+		);
+		mask-image: linear-gradient(
+			to right,
+			transparent 0%,
+			black 5%,
+			black 95%,
+			transparent 100%
+		), linear-gradient(
+			to bottom,
+			transparent 0%,
+			black 5%,
+			black 95%,
+			transparent 100%
+		);
+		-webkit-mask-image: linear-gradient(
+			to right,
+			transparent 0%,
+			black 5%,
+			black 95%,
+			transparent 100%
+		), linear-gradient(
+			to bottom,
+			transparent 0%,
+			black 5%,
+			black 95%,
+			transparent 100%
+		);
+		mask-composite: intersect;
+		-webkit-mask-composite: source-in;
+	}
+
+	.latest-posts {
+		margin-bottom: 3rem;
+	}
+
+	.latest-posts h2 {
+		font-size: 2rem;
+		margin-bottom: 1.5rem;
+		text-align: center;
+		color: #333;
+	}
+
+	.post-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.post-card {
+		border: 1px solid #eee;
+		border-radius: 4px;
+		overflow: hidden;
+		transition: transform 0.2s ease;
+	}
+
+	.post-card:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.post-card a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.post-image {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+
+	.post-content {
+		padding: 1.25rem;
+	}
+
+	.post-title {
+		font-size: 1.25rem;
+		margin: 0 0 0.5rem 0;
+		color: #222;
+	}
+
+	.post-date {
+		font-size: 0.9rem;
+		color: #666;
+		margin-bottom: 0.75rem;
+	}
+
+	.post-excerpt {
+		font-size: 0.95rem;
+		line-height: 1.5;
+		color: #444;
+	}
+
+	.view-all {
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	.view-all-button {
+		display: inline-block;
+		padding: 0.6rem 1.2rem;
+		background-color: #333;
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+		font-weight: 500;
+		transition: background-color 0.2s ease;
+	}
+
+	.view-all-button:hover {
+		background-color: #555;
+	}
+
+	@media (max-width: 768px) {
+		.post-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
