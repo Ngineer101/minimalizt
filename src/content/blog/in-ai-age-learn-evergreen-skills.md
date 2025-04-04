@@ -1,5 +1,5 @@
 ---
-title: 'In the age of AI, focus on developing evergreen skills'
+title: 'In the age of AI, develop evergreen skills'
 description: 'It is feared that AI might replace a lot of the work that humans do. Is it possible to make yourself irreplaceable in this time?'
 pubDate: 'Apr 02 2025'
 heroImage: '/blog-cover-1.jpeg'
@@ -31,7 +31,7 @@ There's a common saying that "***it's not about what you know, but who you know*
 
 Building relationships is underrated in the age of AI, but it is irreplaceable. Whether you are networking in person or connecting with others online, relationships provide emotional motivation, open doors to new opportunities, and enrich your understanding and skills.
 
-Focusing on building real relationships provides you:
+Building real relationships provides you:
 
 - **Networking Opportunities**: Building relationships opens doors to new opportunities, whether it's a job offer, partnership, or mentorship.
 - **Emotional Support**: Relationships provide emotional support, which is crucial for personal and professional well-being.
