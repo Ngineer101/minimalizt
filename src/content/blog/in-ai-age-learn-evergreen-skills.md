@@ -1,6 +1,6 @@
 ---
 title: 'In the age of AI, develop evergreen skills'
-description: 'It is feared that AI might replace a lot of the work that humans do. Is it possible to make yourself irreplaceable in this time?'
+description: 'Many people fear AI might replace human jobs. Is it possible to make yourself irreplaceable in this time?'
 pubDate: 'Apr 02 2025'
 heroImage: '/blog-cover-1.jpeg'
 ---
@@ -21,7 +21,7 @@ In an ever-evolving work environment, being able to adapt your communication sty
 
 Clear and effective communication:
 
-- **Enhances Collaboration**: Clear communication fosters better collaboration among team members, reducing misunderstandings and increasing efficiency.
+- **Fosters Teamwork**: Clear communication fosters better collaboration among team members, reducing misunderstandings and increasing efficiency.
 - **Builds Trust**: Being able to convey your thoughts clearly helps in building trust with colleagues and clients, as they feel more informed and involved.
 - **Improves Problem Solving**: Clear communication allows for more effective problem-solving as issues are articulated well, leading to quicker resolutions and deeper discussions.
 
@@ -37,7 +37,7 @@ Building real relationships provides you:
 - **Emotional Support**: Relationships provide emotional support, which is crucial for personal and professional well-being.
 - **Knowledge Sharing**: Through relationships, you gain access to diverse perspectives and knowledge, enriching your own understanding and skills.
 
-## The ability to break down a complex problem into smaller parts and solving each part individually
+## Breaking down complex problems
 
 Currently, LLMs are not that good with breaking down a complex problem into smaller parts and solving each part individually (although it's making huge progress in that direction). But the ability to analyze a problem, think critically about a solution, and solving it in smaller parts is an immensely valuable skill. And it's a skill, when mastered, that can be exponentially aided with the use of AI.
 
@@ -51,6 +51,6 @@ Being able to break down a complex problem:
 
 ## Conclusion
 
-In the age of AI, it's important to focus on learning skills that will remain relevant regardless of the tools and technology that arise. Simple, clear communication, building relationships, and the ability to break down a complex problem into smaller parts are irreplaceable skills that will continue to be valuable in the future.
+In the age of AI, it's essential to focus on learning skills that will remain relevant regardless of the tools and technology that arise. Simple, clear communication, building relationships, and the ability to break down a complex problem into smaller parts are irreplaceable skills that will continue to be valuable in the future.
 
 (* completely made up statistic :)
