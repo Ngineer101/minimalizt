@@ -35,7 +35,7 @@ Building relationships is underrated in the age of AI, but it is irreplaceable. 
 
 Currently, LLMs are not that good with breaking down a complex problem into smaller parts and solving each part individually (although it's making huge progress in that direction). But the ability to analyze a problem, think critically about a solution, and solving it in smaller parts is an immensely valuable skill. And it's a skill, when mastered, that can be exponentially aided with the use of AI.
 
-Good old-fashioned logical problem-solving will always be irreplaceable. Whether you are working on a complex project or a simple task, the ability to break down a problem and solve it step by step is a skill that will continue to be valuable in the future.
+Good old-fashioned logical problem-solving skills will always be irreplaceable. Whether you are working on a complex project or a simple task, the ability to break down a problem and solve it step by step is a skill that will continue to be valuable in the future.
 
 ## Conclusion
 
