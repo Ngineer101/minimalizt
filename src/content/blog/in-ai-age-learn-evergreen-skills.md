@@ -1,7 +1,7 @@
 ---
 title: 'In the age of AI, develop evergreen skills'
 description: 'Many people fear AI might replace human jobs. Is it possible to make yourself irreplaceable in this time?'
-pubDate: 'Apr 02 2025'
+pubDate: 'Apr 04 2025'
 heroImage: '/blog-cover-1.jpeg'
 ---
 
@@ -15,7 +15,7 @@ I'd like to think it is. While it is very important to learn how to leverage AI 
 
 ## Simple, clear communication
 
-Whether you are communicating with another human or giving instructions to a large language model (LLM), simple, clear communication will always be valuable. It makes it easier for others to understand you and makes collaboration with other people significantly easier. In fact, you will get infinitely better results when you can communicate in a simple, clear, but effective way with an LLM. And while good communication skills may sound like a simple task, it is something that most people still ignore when focusing on their professional development.
+Whether you are communicating with another human or giving instructions to a large language model (LLM), simple, clear communication will always be the foundation of what you do. It makes collaboration with other people significantly easier. In fact, you will also get infinitely better results when you can communicate in a simple, clear, but effective way with an LLM. And while good communication skills may sound like a simple skill to learn, it is something that most people still ignore when focusing on their professional development.
 
 In an ever-evolving work environment, being able to adapt and improve your communication style is essential. It will help you navigate misunderstandings and feedback with a constructive mindset. And it will help you stay relevant as language, technology, and workplace norms evolve.
 
