@@ -50,7 +50,7 @@ body {
 main {
   width: 720px;
   max-width: calc(100% - 2em);
-  margin: auto;
+  margin: 0 auto;
   padding: 3em 1em;
   overflow-x: hidden; /* Prevent horizontal scrolling in main content */
 }

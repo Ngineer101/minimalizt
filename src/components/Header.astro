@@ -80,9 +80,52 @@ import { SITE_TITLE } from '../consts';
 	.social-links a {
 		display: flex;
 	}
+	
+	/* Mobile adjustments */
 	@media (max-width: 720px) {
+		header {
+			padding: 0 0.75em;
+		}
+		
+		nav {
+			flex-wrap: wrap;
+			padding: 0.5em 0;
+		}
+		
+		h2 {
+			width: auto;
+			flex: 1;
+		}
+		
+		h2 span.text-2xl {
+			font-size: 1.25rem;
+		}
+		
+		.internal-links {
+			order: 3;
+			/* width: 100%; */
+			margin-top: 0.5em;
+			display: flex;
+			justify-content: center;
+		}
+		
 		.social-links {
 			display: none;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		nav a {
+			padding: 0.75em 0.4em;
+		}
+		
+		h2 img {
+			width: 36px;
+			height: 36px;
+		}
+		
+		h2 span.text-2xl {
+			font-size: 1.1rem;
 		}
 	}
 </style>
