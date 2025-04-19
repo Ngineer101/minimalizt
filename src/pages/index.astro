@@ -58,10 +58,23 @@ const posts = (await getCollection('blog'))
 </html>
 
 <style>
+	* {
+		box-sizing: border-box;
+	}
+	
+	/* Root fixes for mobile overflow */
+	html, body {
+		overflow-x: hidden;
+		position: relative;
+		width: 100%;
+	}
+	
 	main {
 		max-width: 1200px;
 		margin: 0 auto;
 		padding: 2rem;
+		width: 100%;
+		overflow-x: clip;
 	}
 
 	.hero-section {
@@ -156,6 +169,7 @@ const posts = (await getCollection('blog'))
 		width: 100%;
 		height: 150px;
 		object-fit: cover;
+		max-width: 100%;
 	}
 
 	.post-content {
@@ -201,8 +215,85 @@ const posts = (await getCollection('blog'))
 	}
 
 	@media (max-width: 768px) {
+		main {
+			padding: 1rem;
+			width: 100%;
+			max-width: 100%;
+			overflow-x: clip;
+		}
+		
+		.latest-posts {
+			width: 100%;
+			overflow-x: hidden;
+			padding: 0;
+		}
+		
+		.latest-posts h2 {
+			font-size: 1.8rem;
+			margin-bottom: 1.2rem;
+		}
+		
 		.post-grid {
 			grid-template-columns: 1fr;
+			gap: 1.5rem;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.post-card {
+			max-width: 100%;
+			width: 100%;
+			margin: 0;
+			box-shadow: none;
+		}
+		
+		.post-image {
+			height: 200px;
+			max-width: 100%;
+		}
+		
+		.post-content {
+			max-width: 100%;
+			width: 100%;
+			padding: 1rem;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		body {
+			overflow-x: hidden;
+		}
+		
+		main {
+			padding: 1rem 0.5rem;
+			overflow-x: hidden;
+		}
+		
+		.latest-posts h2 {
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+		
+		.post-grid {
+			gap: 1.2rem;
+		}
+		
+		.post-content {
+			padding: 1rem;
+		}
+		
+		.post-title {
+			font-size: 1.1rem;
+		}
+		
+		.post-excerpt {
+			font-size: 0.9rem;
+		}
+		
+		.view-all-button {
+			padding: 0.5rem 1rem;
+			font-size: 0.9rem;
 		}
 	}
 </style>
