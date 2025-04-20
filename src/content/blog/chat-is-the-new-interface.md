@@ -40,7 +40,7 @@ Chatting on a PC fits perfectly into the current work and professional environme
 
 ### Personalized and context-aware
 
-Unlike one-size-fits-all software interfaces (as with Vision Pro), chat adapts its interactions and maintains context across sessions. Your assistant learns as you interact, and improves the more you use it over time. Imagine having an assistant that gets better and smarter everyday - that is possible with with a $20 monthly subscription.
+Unlike one-size-fits-all software interfaces (as with Vision Pro), chat adapts its interactions and maintains context across sessions. Your assistant learns as you interact, and improves the more you use it over time. Imagine having an assistant that gets better and smarter everyday - that is possible with a $20 monthly subscription.
 
 ## Conclusion
 
