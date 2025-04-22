@@ -1,26 +1,52 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import BaseHead from '../../../components/BaseHead.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { SITE_TITLE } from '../../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  
+  // Get all unique tags
+  const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
+  
+  // Create a path for each tag
+  return tags.map(tag => ({
+    params: { tag },
+    props: { 
+      tag,
+      posts: posts.filter(post => post.data.tags && post.data.tags.includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    }
+  }));
+}
+
+const { tag, posts } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${SITE_TITLE} - Tag: ${tag}`} description={`Blog posts tagged with ${tag}`} />
 		<style>
 			main {
 				width: 960px;
 				max-width: calc(100% - 2em);
 				margin: 0 auto;
 				padding: 3em 1em;
+			}
+			.tag-header {
+				margin-bottom: 2em;
+				text-align: center;
+			}
+			.tag-header h1 {
+				font-size: 2.5em;
+				margin-bottom: 0.5em;
+			}
+			.tag-header p {
+				color: rgb(var(--gray));
 			}
 			ul {
 				display: flex;
@@ -76,6 +102,10 @@ const posts = (await getCollection('blog')).sort(
 			.post-tag:hover {
 				background-color: rgba(var(--accent), 0.2);
 			}
+			.post-tag.active {
+				background-color: rgb(var(--accent));
+				color: white;
+			}
 			ul li a:hover h4,
 			ul li a:hover .date {
 				color: rgb(var(--accent));
@@ -125,6 +155,11 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
+				<div class="tag-header">
+					<h1>#{tag}</h1>
+					<p>{posts.length} post{posts.length === 1 ? '' : 's'} tagged with "{tag}"</p>
+					<a href="/blog/" style="display: inline-block; margin-top: 1em; color: rgb(var(--accent));">← Back to all posts</a>
+				</div>
 				<ul>
 					{
 						posts.map((post) => (
@@ -138,9 +173,12 @@ const posts = (await getCollection('blog')).sort(
 								</a>
 								{post.data.tags && post.data.tags.length > 0 && (
 									<div class="post-tags">
-										{post.data.tags.map((tag) => (
-											<a href={`/blog/tag/${tag}`} class="post-tag">
-												#{tag}
+										{post.data.tags.map((postTag) => (
+											<a 
+												href={`/blog/tag/${postTag}`} 
+												class={`post-tag ${postTag === tag ? 'active' : ''}`}
+											>
+												#{postTag}
 											</a>
 										))}
 									</div>

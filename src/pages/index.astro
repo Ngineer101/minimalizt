@@ -44,6 +44,15 @@ const posts = (await getCollection('blog'))
 										<p class="post-excerpt">{post.data.description}</p>
 									</div>
 								</a>
+								{post.data.tags && post.data.tags.length > 0 && (
+									<div class="post-tags">
+										{post.data.tags.map((tag) => (
+											<a href={`/blog/tag/${tag}`} class="post-tag">
+												#{tag}
+											</a>
+										))}
+									</div>
+								)}
 							</div>
 						))
 					}
@@ -192,6 +201,28 @@ const posts = (await getCollection('blog'))
 		font-size: 0.95rem;
 		line-height: 1.5;
 		color: #444;
+	}
+
+	.post-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em;
+		padding: 0 1.25rem 1.25rem;
+	}
+
+	.post-tag {
+		display: inline-block;
+		background-color: rgba(var(--accent), 0.1);
+		color: rgb(var(--accent));
+		border-radius: 0.5em;
+		padding: 0.15em 0.5em;
+		font-size: 0.8em;
+		text-decoration: none;
+		transition: background-color 0.2s ease;
+	}
+
+	.post-tag:hover {
+		background-color: rgba(var(--accent), 0.2);
 	}
 
 	.view-all {
