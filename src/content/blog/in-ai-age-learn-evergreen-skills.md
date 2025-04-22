@@ -3,6 +3,7 @@ title: 'In the age of AI, develop evergreen skills'
 description: 'Many people fear AI might replace human jobs. Is it possible to make yourself irreplaceable in this time?'
 pubDate: 'Apr 04 2025'
 heroImage: '/blog-cover-1.jpeg'
+tags: ['AI', 'Career Development', 'Opinion']
 ---
 
 At this point, the capabilities of AI are well known among tech folks, and it's clear that a lot of white-collar work (coding, accounting, customer support, etc.) will be largely automated by AI in the near future.

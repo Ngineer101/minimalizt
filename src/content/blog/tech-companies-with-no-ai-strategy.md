@@ -3,6 +3,7 @@ title: 'Tech companies with no AI strategy in 2025 will be the equivalent of bri
 description: 'The tech landscape is changing fast. Companies without a clear AI plan risk becoming obsolete, like physical stores caught unprepared by e-commerce two decades ago.'
 pubDate: 'Apr 11 2025'
 heroImage: '/blog-cover-2.jpeg'
+tags: ['AI', 'Opinion']
 ---
 
 In the year 2005, businesses like Blockbuster (or Mr. Video if you lived in South Africa like me) and Gamestop flourished. No mall was complete without one of these stores, and for many, the highlight of the week was renting the latest DVD to watch at home. Back then, the internet was still a novelty and not nearly as accessible as it is today. Then, slowly at first, everything changed.
