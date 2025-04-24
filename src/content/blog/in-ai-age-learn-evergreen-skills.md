@@ -1,9 +1,9 @@
 ---
-title: 'In the age of AI, develop evergreen skills'
-description: 'Many people fear AI might replace human jobs. Is it possible to make yourself irreplaceable in this time?'
-pubDate: 'Apr 04 2025'
-heroImage: '/blog-cover-1.jpeg'
-tags: ['AI', 'Career Development', 'Opinion']
+title: "In the age of AI, develop evergreen skills"
+description: "Many people fear AI might replace human jobs. Is it possible to make yourself irreplaceable in this time?"
+pubDate: "Apr 04 2025"
+heroImage: "/blog-cover-1.jpeg"
+tags: ["AI", "Career Development", "Opinion"]
 ---
 
 At this point, the capabilities of AI are well known among tech folks, and it's clear that a lot of white-collar work (coding, accounting, customer support, etc.) will be largely automated by AI in the near future.
@@ -28,7 +28,7 @@ The hardest part is being open to this change and not fearing the unknown. But i
 
 ## Building relationships both online and offline
 
-There's a common saying that "***it's not about what you know, but who you know***". This is true for business and personal relationships. And, fortunately, AI can't build relationships on your behalf. When given the choice, *99.9% of people still choose to socialize and interact with real humans instead of some computer interface.
+There's a common saying that "**_it's not about what you know, but who you know_**". This is true for business and personal relationships. And, fortunately, AI can't build relationships on your behalf. When given the choice, \*99.9% of people still choose to socialize and interact with real humans instead of some computer interface.
 
 Building relationships is underrated in the age of AI, but it is irreplaceable. Whether you are networking in person or connecting with others online, relationships provide emotional motivation, open doors to new opportunities, and enrich your understanding and skills.
 
@@ -42,4 +42,4 @@ Good old-fashioned logical problem-solving skills will always be irreplaceable. 
 
 In the age of AI, it's essential to focus on learning skills that will remain relevant regardless of the tools and technology that arise. Simple, clear communication, adapting to change, building relationships, and the ability to break down a complex problem into smaller parts are irreplaceable skills that will continue to be valuable in the future.
 
-(* completely made up statistic :)
+(\* completely made up statistic :)

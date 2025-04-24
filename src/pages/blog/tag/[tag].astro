@@ -1,25 +1,26 @@
 ---
-import BaseHead from '../../../components/BaseHead.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-import { SITE_TITLE } from '../../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../../components/FormattedDate.astro';
+import BaseHead from "../../../components/BaseHead.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { SITE_TITLE } from "../../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../../components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  
+  const posts = await getCollection("blog");
+
   // Get all unique tags
-  const tags = [...new Set(posts.flatMap(post => post.data.tags || []))];
-  
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags || []))];
+
   // Create a path for each tag
-  return tags.map(tag => ({
+  return tags.map((tag) => ({
     params: { tag },
-    props: { 
+    props: {
       tag,
-      posts: posts.filter(post => post.data.tags && post.data.tags.includes(tag))
-        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    }
+      posts: posts
+        .filter((post) => post.data.tags && post.data.tags.includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
   }));
 }
 
@@ -28,167 +29,183 @@ const { tag, posts } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={`${SITE_TITLE} - Tag: ${tag}`} description={`Blog posts tagged with ${tag}`} />
-		<style>
-			main {
-				width: 960px;
-				max-width: calc(100% - 2em);
-				margin: 0 auto;
-				padding: 3em 1em;
-			}
-			.tag-header {
-				margin-bottom: 2em;
-				text-align: center;
-			}
-			.tag-header h1 {
-				font-size: 2.5em;
-				margin-bottom: 0.5em;
-			}
-			.tag-header p {
-				color: rgb(var(--gray));
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-				width: 100%; /* Fill container width */
-				height: auto; /* Maintain aspect ratio */
-				max-height: 240px;
-				object-fit: cover; /* Cover area, crop if needed */
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			.post-tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5em;
-				margin-top: 0.5em;
-			}
-			.post-tag {
-				display: inline-block;
-				background-color: rgba(var(--accent), 0.1);
-				color: rgb(var(--accent));
-				border-radius: 0.5em;
-				padding: 0.15em 0.5em;
-				font-size: 0.8em;
-				text-decoration: none;
-				transition: background-color 0.2s ease;
-			}
-			.post-tag:hover {
-				background-color: rgba(var(--accent), 0.2);
-			}
-			.post-tag.active {
-				background-color: rgb(var(--accent));
-				color: white;
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				main {
-					padding: 2em 1em;
-				}
-				ul {
-					gap: 1.5rem;
-				}
-				ul li {
-					width: 100%;
-				}
-				ul li img {
-					max-height: 200px;
-				}
-				.title {
-					font-size: 1.5rem;
-					margin-top: 0.5rem;
-				}
-			}
-			@media (max-width: 480px) {
-				main {
-					padding: 1.5em 0.75em;
-				}
-				ul {
-					gap: 1rem;
-				}
-				ul li img {
-					max-height: 180px;
-					margin-bottom: 0.3rem;
-				}
-				.title {
-					font-size: 1.3rem;
-				}
-				.date {
-					font-size: 0.9rem;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<div class="tag-header">
-					<h1>#{tag}</h1>
-					<p>{posts.length} post{posts.length === 1 ? '' : 's'} tagged with "{tag}"</p>
-					<a href="/blog/" style="display: inline-block; margin-top: 1em; color: rgb(var(--accent));">← Back to all posts</a>
-				</div>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-								{post.data.tags && post.data.tags.length > 0 && (
-									<div class="post-tags">
-										{post.data.tags.map((postTag) => (
-											<a 
-												href={`/blog/tag/${postTag}`} 
-												class={`post-tag ${postTag === tag ? 'active' : ''}`}
-											>
-												#{postTag}
-											</a>
-										))}
-									</div>
-								)}
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead
+      title={`${SITE_TITLE} - Tag: ${tag}`}
+      description={`Blog posts tagged with ${tag}`}
+    />
+    <style>
+      main {
+        width: 960px;
+        max-width: calc(100% - 2em);
+        margin: 0 auto;
+        padding: 3em 1em;
+      }
+      .tag-header {
+        margin-bottom: 2em;
+        text-align: center;
+      }
+      .tag-header h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+      }
+      .tag-header p {
+        color: rgb(var(--gray));
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul li {
+        width: calc(50% - 1rem);
+      }
+      ul li * {
+        text-decoration: none;
+        transition: 0.2s ease;
+      }
+      ul li img {
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+        width: 100%; /* Fill container width */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 240px;
+        object-fit: cover; /* Cover area, crop if needed */
+      }
+      ul li a {
+        display: block;
+      }
+      .title {
+        margin: 0;
+        color: rgb(var(--black));
+        line-height: 1;
+      }
+      .date {
+        margin: 0;
+        color: rgb(var(--gray));
+      }
+      .post-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        margin-top: 0.5em;
+      }
+      .post-tag {
+        display: inline-block;
+        background-color: rgba(var(--accent), 0.1);
+        color: rgb(var(--accent));
+        border-radius: 0.5em;
+        padding: 0.15em 0.5em;
+        font-size: 0.8em;
+        text-decoration: none;
+        transition: background-color 0.2s ease;
+      }
+      .post-tag:hover {
+        background-color: rgba(var(--accent), 0.2);
+      }
+      .post-tag.active {
+        background-color: rgb(var(--accent));
+        color: white;
+      }
+      ul li a:hover h4,
+      ul li a:hover .date {
+        color: rgb(var(--accent));
+      }
+      ul a:hover img {
+        box-shadow: var(--box-shadow);
+      }
+      @media (max-width: 720px) {
+        main {
+          padding: 2em 1em;
+        }
+        ul {
+          gap: 1.5rem;
+        }
+        ul li {
+          width: 100%;
+        }
+        ul li img {
+          max-height: 200px;
+        }
+        .title {
+          font-size: 1.5rem;
+          margin-top: 0.5rem;
+        }
+      }
+      @media (max-width: 480px) {
+        main {
+          padding: 1.5em 0.75em;
+        }
+        ul {
+          gap: 1rem;
+        }
+        ul li img {
+          max-height: 180px;
+          margin-bottom: 0.3rem;
+        }
+        .title {
+          font-size: 1.3rem;
+        }
+        .date {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section>
+        <div class="tag-header">
+          <h1>#{tag}</h1>
+          <p>
+            {posts.length} post{posts.length === 1 ? "" : "s"} tagged with "{
+              tag
+            }"
+          </p>
+          <a
+            href="/blog/"
+            style="display: inline-block; margin-top: 1em; color: rgb(var(--accent));"
+            >← Back to all posts</a
+          >
+        </div>
+        <ul>
+          {
+            posts.map((post) => (
+              <li>
+                <a href={`/blog/${post.id}/`}>
+                  <img
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt=""
+                  />
+                  <h4 class="title">{post.data.title}</h4>
+                  <p class="date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="post-tags">
+                    {post.data.tags.map((postTag) => (
+                      <a
+                        href={`/blog/tag/${postTag}`}
+                        class={`post-tag ${postTag === tag ? "active" : ""}`}
+                      >
+                        #{postTag}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>

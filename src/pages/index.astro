@@ -1,330 +1,335 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
 
 // Get the latest 3 blog posts
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section class="hero-section">
-				<h1 class="sr-only">Welcome to Minimalizt Dev</h1>
-			</section>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="hero-section">
+        <h1 class="sr-only">Welcome to Minimalizt Dev</h1>
+      </section>
 
-			<section class="latest-posts">
-				<h2>Latest Posts</h2>
-				<div class="post-grid">
-					{
-						posts.map((post) => (
-							<div class="post-card">
-								<a href={`/blog/${post.id}/`}>
-									<img 
-										src={post.data.heroImage} 
-										alt={post.data.title} 
-										class="post-image" 
-									/>
-									<div class="post-content">
-										<h3 class="post-title">{post.data.title}</h3>
-										<p class="post-date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
-										<p class="post-excerpt">{post.data.description}</p>
-									</div>
-								</a>
-								{post.data.tags && post.data.tags.length > 0 && (
-									<div class="post-tags">
-										{post.data.tags.map((tag) => (
-											<a href={`/blog/tag/${tag}`} class="post-tag">
-												#{tag}
-											</a>
-										))}
-									</div>
-								)}
-							</div>
-						))
-					}
-				</div>
-				<div class="view-all">
-					<a href="/blog/" class="view-all-button">View All Posts</a>
-				</div>
-			</section>
-		</main>
-		<Footer />
-	</body>
+      <section class="latest-posts">
+        <h2>Latest Posts</h2>
+        <div class="post-grid">
+          {
+            posts.map((post) => (
+              <div class="post-card">
+                <a href={`/blog/${post.id}/`}>
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="post-image"
+                  />
+                  <div class="post-content">
+                    <h3 class="post-title">{post.data.title}</h3>
+                    <p class="post-date">
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
+                    <p class="post-excerpt">{post.data.description}</p>
+                  </div>
+                </a>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="post-tags">
+                    {post.data.tags.map((tag) => (
+                      <a href={`/blog/tag/${tag}`} class="post-tag">
+                        #{tag}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))
+          }
+        </div>
+        <div class="view-all">
+          <a href="/blog/" class="view-all-button">View All Posts</a>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-	* {
-		box-sizing: border-box;
-	}
-	
-	/* Root fixes for mobile overflow */
-	html, body {
-		overflow-x: hidden;
-		position: relative;
-		width: 100%;
-	}
-	
-	main {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 2rem;
-		width: 100%;
-		overflow-x: clip;
-	}
+  * {
+    box-sizing: border-box;
+  }
 
-	.hero-section {
-		margin-bottom: 3rem;
-		position: relative;
-	}
+  /* Root fixes for mobile overflow */
+  html,
+  body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+  }
 
-	.hero-image {
-		width: 100%;
-		height: 200px;
-		object-fit: contain;
-		mask-image: linear-gradient(
-			to bottom,
-			transparent 0%,
-			black 10%,
-			black 90%,
-			transparent 100%
-		);
-		-webkit-mask-image: linear-gradient(
-			to bottom,
-			transparent 0%,
-			black 10%,
-			black 90%,
-			transparent 100%
-		);
-		mask-image: linear-gradient(
-			to right,
-			transparent 0%,
-			black 5%,
-			black 95%,
-			transparent 100%
-		), linear-gradient(
-			to bottom,
-			transparent 0%,
-			black 5%,
-			black 95%,
-			transparent 100%
-		);
-		-webkit-mask-image: linear-gradient(
-			to right,
-			transparent 0%,
-			black 5%,
-			black 95%,
-			transparent 100%
-		), linear-gradient(
-			to bottom,
-			transparent 0%,
-			black 5%,
-			black 95%,
-			transparent 100%
-		);
-		mask-composite: intersect;
-		-webkit-mask-composite: source-in;
-	}
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    overflow-x: clip;
+  }
 
-	.latest-posts {
-		margin-bottom: 3rem;
-	}
+  .hero-section {
+    margin-bottom: 3rem;
+    position: relative;
+  }
 
-	.latest-posts h2 {
-		font-size: 2rem;
-		margin-bottom: 1.5rem;
-		text-align: center;
-		color: #333;
-	}
+  .hero-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      );
+    -webkit-mask-image:
+      linear-gradient(
+        to right,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 5%,
+        black 95%,
+        transparent 100%
+      );
+    mask-composite: intersect;
+    -webkit-mask-composite: source-in;
+  }
 
-	.post-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-		gap: 2rem;
-		margin-bottom: 2rem;
-	}
+  .latest-posts {
+    margin-bottom: 3rem;
+  }
 
-	.post-card {
-		border: 1px solid #eee;
-		border-radius: 4px;
-		overflow: hidden;
-		transition: transform 0.2s ease;
-	}
+  .latest-posts h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #333;
+  }
 
-	.post-card:hover {
-		transform: translateY(-3px);
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-	}
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
 
-	.post-card a {
-		text-decoration: none;
-		color: inherit;
-	}
+  .post-card {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
 
-	.post-image {
-		width: 100%;
-		height: 150px;
-		object-fit: cover;
-		max-width: 100%;
-	}
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
 
-	.post-content {
-		padding: 1.25rem;
-	}
+  .post-card a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-	.post-title {
-		font-size: 1.25rem;
-		margin: 0 0 0.5rem 0;
-		color: #222;
-	}
+  .post-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    max-width: 100%;
+  }
 
-	.post-date {
-		font-size: 0.9rem;
-		color: #666;
-		margin-bottom: 0.75rem;
-	}
+  .post-content {
+    padding: 1.25rem;
+  }
 
-	.post-excerpt {
-		font-size: 0.95rem;
-		line-height: 1.5;
-		color: #444;
-	}
+  .post-title {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem 0;
+    color: #222;
+  }
 
-	.post-tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5em;
-		padding: 0 1.25rem 1.25rem;
-	}
+  .post-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+  }
 
-	.post-tag {
-		display: inline-block;
-		background-color: rgba(var(--accent), 0.1);
-		color: rgb(var(--accent));
-		border-radius: 0.5em;
-		padding: 0.15em 0.5em;
-		font-size: 0.8em;
-		text-decoration: none;
-		transition: background-color 0.2s ease;
-	}
+  .post-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #444;
+  }
 
-	.post-tag:hover {
-		background-color: rgba(var(--accent), 0.2);
-	}
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding: 0 1.25rem 1.25rem;
+  }
 
-	.view-all {
-		text-align: center;
-		margin-top: 2rem;
-	}
+  .post-tag {
+    display: inline-block;
+    background-color: rgba(var(--accent), 0.1);
+    color: rgb(var(--accent));
+    border-radius: 0.5em;
+    padding: 0.15em 0.5em;
+    font-size: 0.8em;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
 
-	.view-all-button {
-		display: inline-block;
-		padding: 0.6rem 1.2rem;
-		background-color: #333;
-		color: white;
-		text-decoration: none;
-		border-radius: 4px;
-		font-weight: 500;
-		transition: background-color 0.2s ease;
-	}
+  .post-tag:hover {
+    background-color: rgba(var(--accent), 0.2);
+  }
 
-	.view-all-button:hover {
-		background-color: #555;
-	}
+  .view-all {
+    text-align: center;
+    margin-top: 2rem;
+  }
 
-	@media (max-width: 768px) {
-		main {
-			padding: 1rem;
-			width: 100%;
-			max-width: 100%;
-			overflow-x: clip;
-		}
-		
-		.latest-posts {
-			width: 100%;
-			overflow-x: hidden;
-			padding: 0;
-		}
-		
-		.latest-posts h2 {
-			font-size: 1.8rem;
-			margin-bottom: 1.2rem;
-		}
-		
-		.post-grid {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-			width: 100%;
-			padding: 0;
-			margin: 0;
-		}
-		
-		.post-card {
-			max-width: 100%;
-			width: 100%;
-			margin: 0;
-			box-shadow: none;
-		}
-		
-		.post-image {
-			height: 200px;
-			max-width: 100%;
-		}
-		
-		.post-content {
-			max-width: 100%;
-			width: 100%;
-			padding: 1rem;
-		}
-	}
-	
-	@media (max-width: 480px) {
-		body {
-			overflow-x: hidden;
-		}
-		
-		main {
-			padding: 1rem 0.5rem;
-			overflow-x: hidden;
-		}
-		
-		.latest-posts h2 {
-			font-size: 1.5rem;
-			margin-bottom: 1rem;
-		}
-		
-		.post-grid {
-			gap: 1.2rem;
-		}
-		
-		.post-content {
-			padding: 1rem;
-		}
-		
-		.post-title {
-			font-size: 1.1rem;
-		}
-		
-		.post-excerpt {
-			font-size: 0.9rem;
-		}
-		
-		.view-all-button {
-			padding: 0.5rem 1rem;
-			font-size: 0.9rem;
-		}
-	}
+  .view-all-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+
+  .view-all-button:hover {
+    background-color: #555;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 1rem;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: clip;
+    }
+
+    .latest-posts {
+      width: 100%;
+      overflow-x: hidden;
+      padding: 0;
+    }
+
+    .latest-posts h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .post-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    .post-card {
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+      box-shadow: none;
+    }
+
+    .post-image {
+      height: 200px;
+      max-width: 100%;
+    }
+
+    .post-content {
+      max-width: 100%;
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      overflow-x: hidden;
+    }
+
+    main {
+      padding: 1rem 0.5rem;
+      overflow-x: hidden;
+    }
+
+    .latest-posts h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-grid {
+      gap: 1.2rem;
+    }
+
+    .post-content {
+      padding: 1rem;
+    }
+
+    .post-title {
+      font-size: 1.1rem;
+    }
+
+    .post-excerpt {
+      font-size: 0.9rem;
+    }
+
+    .view-all-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
 </style>

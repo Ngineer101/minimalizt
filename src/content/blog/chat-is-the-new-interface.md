@@ -1,9 +1,9 @@
 ---
-title: 'Chat is the new interface'
-description: "The way we interact with software is changing. Let's \"chat\" about it."
-pubDate: 'Apr 19 2025'
-heroImage: '/blog-cover-3.jpeg'
-tags: ['AI', 'UX design', 'Opinion']
+title: "Chat is the new interface"
+description: 'The way we interact with software is changing. Let''s "chat" about it.'
+pubDate: "Apr 19 2025"
+heroImage: "/blog-cover-3.jpeg"
+tags: ["AI", "UX design", "Opinion"]
 ---
 
 This past week, I came across this post from Jason Fried (founder of 37signals and Basecamp): [https://x.com/jasonfried/status/1665885183839727616](https://x.com/jasonfried/status/1665885183839727616)
