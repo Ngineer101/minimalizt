@@ -14,16 +14,16 @@ To make this process seamless, we’ll follow these steps:
 
 - **Enable the required Supabase extensions.** This lays the foundation for handling messaging and vector storage in your database.
 - **Add a vector column to your database table.** This column will store the embeddings generated for each row.
-- **Set up a queue to capture new or updated rows.** The queue ensures that every change is registered automatically.
+- **Set up a queue to capture new or updated rows.** The queue receives an event for every change that will later be processed by the Cloudflare worker.
 - **Create a database trigger that queues events for embedding generation.** This trigger fires whenever a new row is added or updated.
 - **Process queue messages using a Cloudflare Worker endpoint.** The worker reads the messages and generates embeddings in real-time.
-- **Schedule a CRON job to trigger the worker periodically.** This ensures that embeddings are consistently updated.
+- **Schedule a CRON job to trigger the worker periodically.** This ensures that embeddings are continuously updated.
 
 Let's get started!
 
 ## Enable all necessary extensions in your Supabase database
 
-To accomplish the above steps you will require 4 extension:
+To accomplish the above steps you will require 4 extensions:
 
 - `pg_cron` - to create CRON jobs in PostgreSQL
 - `pg_net` - to make HTTP calls from PostgreSQL
@@ -45,7 +45,7 @@ create extension if not exists vector with schema extensions;
 
 ## Add a vector column to your database table
 
-For the purpose of this post, let's create a table with this SQL script:
+For the purpose of this post, let's create a table with this SQL script. The `embedding` column will store the embeddings generated for each row.
 
 ```sql
 -- Create responses table
@@ -64,7 +64,7 @@ CREATE INDEX IF NOT EXISTS responses_embedding_idx
 
 ```
 
-## Create queue where new or updated rows will be queued to generate embeddings for
+## Set up a queue to capture new or updated rows
 
 Create the queue directly in the Supabase dashboard as shown in the screenshot:
 
@@ -76,15 +76,17 @@ Or run this SQL script:
 SELECT pgmq.create('response_embeddings');
 ```
 
-After creating the queue, make the pgmq_public schema accessible via the Supabase public API. This is necessary to call the database function with remote procedure calls via the Supabase JavaScript package, e.g. `supabase.rpc('')`
+<br/>
+
+After creating the queue, make it accessible via the Supabase public API. This is necessary to call the database functions in the `pgmq_public` schema with remote procedure calls via the Supabase client libraries, e.g. `supabase.rpc('')`.
 
 ![Make pgmq_public schema accessible](/images/blog/automatic-embeddings-supabase-cloudflare-workers/3_expose_queue.png)
 
-Also, ensure that the `pgmq_public` schema is exposed via the data API. This will allow all Supabase client libraries to access the `pgmq_public` schema.
+Also, ensure that the `pgmq_public` schema is exposed via the data API.
 
 ![Expose pgmq_public schema](/images/blog/automatic-embeddings-supabase-cloudflare-workers/4_expose_pgmq_schema.png)
 
-## Create a database function and trigger to queue embedding events
+## Create a database trigger that queues events for embedding generation
 
 First we have to create a function to queue the response for embedding.
 
@@ -116,6 +118,8 @@ END;
 $$;
 ```
 
+<br/>
+
 Then, create 2 triggers to queue the embedding. One trigger will fire when a new row is added to the responses table, the other trigger will fire when an existing row is updated. This script can be used to create these triggers:
 
 ```sql
@@ -135,15 +139,17 @@ EXECUTE FUNCTION queue_response_embedding();
 
 ```
 
-Now, every time a new row is added to the responses table or an existing row is updated, a new embedding message will be added to the response_embeddings queue.
+<br/>
+
+Now, every time a new row is added to the responses table or an existing row is updated, a new embedding message will be added to the `response_embeddings` queue.
 
 After inserting a value into the responses table, you will see the message in the queue in your Supabase dashboard as shown in the screenshot below:
 
 ![Queue message](/images/blog/automatic-embeddings-supabase-cloudflare-workers/5_messages_queue.png)
 
-## Create a CF worker endpoint to generate embeddings
+## Process queue messages using a Cloudflare Worker endpoint
 
-Create an endpoint in Cloudflare with this code:
+Create an endpoint in Cloudflare with this code (full code available in the [GitHub repository](https://github.com/Ngineer101/automatic-embeddings)):
 
 ```js
 app.post("/api/generate-embeddings", async (c) => {
@@ -234,9 +240,13 @@ app.post("/api/generate-embeddings", async (c) => {
 });
 ```
 
-This code consumes all the messages from the response_embeddings queue and generates an embedding for each message using the OpenAI API.
+<br/>
 
-## Create a CRON job to trigger the CF worker endpoint periodically to generate embeddings
+This code consumes all the messages from the `response_embeddings` queue and generates an embedding for each message using the OpenAI API.
+
+## Schedule a CRON job to trigger the worker periodically
+
+You can create a CRON job using the following SQL script. This creates a job that will run every 5 minutes and ping the Cloudflare worker endpoint. Replace `cloudflare-worker-endpoint` with the actual endpoint of your Cloudflare worker.
 
 ```sql
 -- Create scheduled job to process embedding queue with the worker endpoint
@@ -253,20 +263,18 @@ SELECT cron.schedule(
 );
 ```
 
-This CRON job will ping the Cloudflare worker endpoint every 5 minutes, and all the embedding events in the queue will be processed.
+<br/>
 
-Assuming everything is working as expected (check the CF worker logs to double-check), you will see the embedding value in the embedding column in your responses database table.
+Assuming everything is working as expected (check the CF worker logs to double-check), you will see the `embedding` value in your `responses` table after the CRON job has run.
 
 ![Embedding](/images/blog/automatic-embeddings-supabase-cloudflare-workers/6_embedding.png)
 
 ## Troubleshooting and Next Steps
 
 - If you encounter any configuration issues, double-check that all required Supabase extensions are enabled and configured correctly.
+- Ensure that the queue and the `pgmq_public` schema is exposed via the data API.
 - Review your Cloudflare Worker logs for any error messages.
-- Verify that the image paths and file permissions are correct to ensure all assets display properly.
-- For further guidance, refer to the official documentation of Supabase and Cloudflare Workers.
-
-If you found this post helpful, please leave a comment or share your feedback on your favorite social platform. Happy embedding!
+- For further guidance, refer to the [official documentation of Supabase](https://supabase.com/docs/guides/ai/automatic-embeddings).
 
 ## Conclusion
 

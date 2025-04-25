@@ -10,20 +10,20 @@ If you have worked with AI tech before (or read about it), you might have come a
 
 ## What is text embedding?
 
-Imagine you're trying to teach a computer what words mean. But instead of using a dictionary, you give each word a unique set of numbers that capture its meaning. These sets of numbers are called embeddings.
+Imagine you're trying to teach a computer what words mean. But instead of using a dictionary, you give each word a unique set of numbers that capture its meaning. These sets of numbers are called "embeddings".
 
 Okay, but why numbers?
 
 Computers don’t understand words like we do - they understand numbers. So we translate words, sentences, or even whole paragraphs into numbers, in a smart way, so that:
 
-- Similar meanings = similar numbers
+- **Similar meanings = similar numbers**
    - Like: “happy” and “joyful” get numbers that are close to each other.
-- Different meanings = very different numbers
+- **Different meanings = very different numbers**
    - Like: “cat” and “airplane” get very different numbers.
 
 ## How Do Embeddings Work?
 
-Embeddings are typically generated using advanced deep learning models that process vast amounts of text. These models learn the underlying patterns and relationships between words, effectively mapping them into a high-dimensional vector space. Although the mathematics behind these techniques is complex, the essential idea is straightforward: words with similar meanings are placed close together in this space, making it easier for machines to interpret language contextually.
+Embeddings are typically generated using advanced deep learning models that process vast amounts of text. These models learn the underlying patterns and relationships between words, effectively mapping them into a high-dimensional vector space. Although the mathematics behind these techniques is complex, the essential idea is straightforward: **words with similar meanings are placed close together in this space**, making it easier for machines to interpret language contextually.
 
 ## An Example
 
@@ -39,7 +39,7 @@ After embedding, the computer might represent them like this:
 - Queen → [0.88, 0.19, 0.52]
 - Apple → [0.1, 0.7, 0.3]
 
-You can see "King" and "Queen" have very similar numbers, because they are related! But "Apple" is quite different.
+You can see "King" and "Queen" have very similar numbers, because they are related. But "Apple" is quite different.
 
 ![Embedding example](/images/blog/what-are-embeddings/embeddings.png)
 
@@ -54,4 +54,6 @@ Text embeddings are used in a variety of ways:
 
 ## Conclusion
 
-I hope this exploration into text embeddings has shed light on how converting words into numerical representations can power smarter search, recommendations, and more. If you have any questions or if you'd like to dive deeper into the world of embeddings, feel free to reach out on [X](https://x.com/nwbotha) or [LinkedIn](https://www.linkedin.com/in/nico-botha).
+With the rise of AI, embeddings have become an essential tool for many applications, making it easier for machines to understand and process natural language contextually.
+
+I hope this explanation of embeddings has shed light on how converting words into numerical representations can be used for smarter search, recommendations, and more. If you have any questions, feel free to reach out on [X](https://x.com/nwbotha) or [LinkedIn](https://www.linkedin.com/in/nico-botha).
