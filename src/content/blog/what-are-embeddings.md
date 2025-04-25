@@ -43,6 +43,8 @@ You can see "King" and "Queen" have very similar numbers, because they are relat
 
 ![Embedding example](/images/blog/what-are-embeddings/embeddings.png)
 
+This is an oversimplification, but it gives you an idea of how embeddings work.
+
 ## What do we use this for?
 
 Text embeddings are used in a variety of ways:

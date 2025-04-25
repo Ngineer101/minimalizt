@@ -120,7 +120,7 @@ $$;
 
 <br/>
 
-Then, create 2 triggers to queue the embedding. One trigger will fire when a new row is added to the responses table, the other trigger will fire when an existing row is updated. This script can be used to create these triggers:
+Then, create 2 triggers to queue the embedding. One trigger will fire when a new row is added to the `responses` table, the other trigger will fire when an existing row is updated. This script can be used to create these triggers:
 
 ```sql
 -- Create trigger to queue embeddings when responses are inserted or updated
@@ -141,9 +141,9 @@ EXECUTE FUNCTION queue_response_embedding();
 
 <br/>
 
-Now, every time a new row is added to the responses table or an existing row is updated, a new embedding message will be added to the `response_embeddings` queue.
+Now, every time a new row is added to the `responses` table or an existing row is updated, a new embedding message will be added to the `response_embeddings` queue.
 
-After inserting a value into the responses table, you will see the message in the queue in your Supabase dashboard as shown in the screenshot below:
+After inserting a value into the `responses` table, you will see the message in the queue in your Supabase dashboard as shown in the screenshot below:
 
 ![Queue message](/images/blog/automatic-embeddings-supabase-cloudflare-workers/5_messages_queue.png)
 
@@ -272,7 +272,8 @@ Assuming everything is working as expected (check the CF worker logs to double-c
 ## Troubleshooting and Next Steps
 
 - If you encounter any configuration issues, double-check that all required Supabase extensions are enabled and configured correctly.
-- Ensure that the queue and the `pgmq_public` schema is exposed via the data API.
+- Ensure the queue and the `pgmq_public` schema is exposed via the data API.
+- Ensure you are setting the schema correctly when doing RPC calls - e.g. `supabase.schema('pgmq_public').rpc('read')`
 - Review your Cloudflare Worker logs for any error messages.
 - For further guidance, refer to the [official documentation of Supabase](https://supabase.com/docs/guides/ai/automatic-embeddings).
 
@@ -280,4 +281,4 @@ Assuming everything is working as expected (check the CF worker logs to double-c
 
 I hope this post has helped you understand how to automatically generate embeddings for your data using Supabase and Cloudflare Workers. If you have any questions or need further clarification, feel free to reach out on [X](https://x.com/nwbotha) or [LinkedIn](https://www.linkedin.com/in/nico-botha).
 
-The demo app can be found here with Supabase migrations: [https://github.com/Ngineer101/automatic-embeddings](https://github.com/Ngineer101/automatic-embeddings)
+The demo app can be found here with Supabase migrations included: [https://github.com/Ngineer101/automatic-embeddings](https://github.com/Ngineer101/automatic-embeddings)
