@@ -17,9 +17,9 @@ Okay, but why numbers?
 Computers don’t understand words like we do - they understand numbers. So we translate words, sentences, or even whole paragraphs into numbers, in a smart way, so that:
 
 - **Similar meanings = similar numbers**
-   - Like: “happy” and “joyful” get numbers that are close to each other.
+  - Like: “happy” and “joyful” get numbers that are close to each other.
 - **Different meanings = very different numbers**
-   - Like: “cat” and “airplane” get very different numbers.
+  - Like: “cat” and “airplane” get very different numbers.
 
 ## How Do Embeddings Work?
 
