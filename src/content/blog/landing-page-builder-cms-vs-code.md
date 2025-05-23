@@ -8,19 +8,19 @@ tags: ["Web Development", "Tech", "Product"]
 
 In my career as a software engineer and technical leader, I’ve seen it all when it comes to landing pages - coded landing pages, CMS built, app builders, and various hybrid solutions.
 
-The concept of a landing page is so simple - every business (online or not) needs one in the digital age. And yet, it's still a problem that haven't been completely solved by one tool or platform.
+The concept of a landing page is so simple - every business (online or not) needs one in the digital age. And yet, it's still a problem that hasn't been completely solved by one tool or platform.
 
-In this blog post I will share my experiences with these different approaches and the decision criteria I use to choose the right tool for the job.
+In this blog post, I will share my experiences with these different approaches and the criteria I use to select the right tool for the job.
 
 <small>(_\* I'm not affiliated with any of the tools mentioned in this blog post. This is a purely objective comparison based on my personal experience._)</small>
 
 ## My recent experience with landing pages
 
-When I started at [Swapfiets](https://swapfiets.nl/en-NL) 4 years ago, our landing page and bike pages were built in [Wordpress](https://wordpress.org). Then, due to limited functionality and knowledge within the company, we migrated to a custom built Next.js app where the landing pages and checkout flow could live on a single domain. This was ideal at the time since we had enough frontend developers to maintain the app and the entire flow was owned by our team. Now, we are back to using a CMS, this time [Framer](https://framer.com), in combination with Next.js for the checkout flow. This hybrid approach was chosen because there was a growing need from the marketing team to run their own experiments and have more freedom to build topic-specific landing pages for promotional campaigns or specific niches.
+When I started at [Swapfiets](https://swapfiets.nl/en-NL) 4 years ago, our landing page and bike pages were built in [WordPress](https://wordpress.org). Then, due to limited functionality and knowledge within the company, we migrated to a custom-built Next.js app where the landing pages and checkout flow could live on a single domain. This was ideal at the time since we had enough frontend developers to maintain the app and the entire flow was owned by our team. Now, we are back to using a CMS, this time [Framer](https://framer.com), in combination with Next.js for the checkout flow. This hybrid approach was chosen because there was a growing need from the marketing team to run their own experiments and have more freedom to build topic-specific landing pages for promotional campaigns or specific niches.
 
-At [Supermeme.ai](https://supermeme.ai) we started using a landing page builder and a separate blogging platform on our main domain, and hosted the Next.js app on a separate `app.*` domain. But, as we grew, we wanted to add search and meme editing functionality to the main domain for SEO purposes among other things. So we decided to build all the landing pages, search pages, meme editor and the rest of the main app in a single codebase. Now, everything lives in a Next.js monorepo. This is ideal because we can build free tools for marketing purposes and deploy it to our main domain for SEO benefits. And with the help of AI coding tools, even less technical team members can make changes to any content page without actually having to write code at all. Without AI coding tools, this would have been a much more complex process (and very impractical).
+At [Supermeme.ai](https://supermeme.ai) we started using a landing page builder and a separate blogging platform on our main domain and hosted the Next.js app on a separate `app.*` domain. But as we grew, we wanted to add search and meme-editing functionality to the main domain for SEO purposes, among other things. So we decided to build all the landing pages, search pages, meme editor, and the rest of the main app in a single codebase. Now, everything lives in a Next.js monorepo. This is ideal because we can build free tools for marketing purposes and deploy them to our main domain for SEO benefits. Even less technical team members can make changes to any content page without having to write code at all, thanks to AI coding tools. Without AI coding tools, this would have been a much more complex process and very impractical.
 
-Through these experiences I learned a lot about the different options and the decision criteria that go into choosing the right tool for the job.
+Through these experiences, I learned a lot about the different options and the criteria that go into choosing the right tool for the job.
 
 ## What are the considerations when creating a landing page?
 
@@ -160,7 +160,7 @@ _Supermeme.ai_ began with a builder and a separate blogging SaaS, but SEO and pr
 
 Hybrid approaches let you pick the best tool for each job, but they introduce some integration overhead and multiple sources of truth. From my experience, the benefits of a hybrid approach usually outweigh the drawbacks because, if set up correctly, it gives multiple teams enough autonomy to make changes independently while still working on shared company-wide goals and targets.
 
-It's also worth noting that any approach or tool choice is not permanent. It's important to re-evaluate your decisions whenever the situation changes. This could be due to a change in the market, a change in the company strategy, or a change in the team's skill set (see Swapfiets' iterations over the years).
+It's also worth noting that any approach or tool choice is not permanent. It's important to re-evaluate your decisions whenever the situation changes. This could be due to a change in the market, a change in the company strategy, or a change in the team's skill set.
 
 ---
 
@@ -170,16 +170,16 @@ Modern assistants like GitHub Copilot, ChatGPT, lovable, v0, and many others, ma
 
 - tweak hero copy or button text directly in JSX/MDX and open a pull request in minutes
 - generate responsive CSS snippets or Tailwind classes without memorizing (or even knowing) syntax
-- scaffold a new variant page with prompts
+- scaffold a new page variant with prompts
 - wire up simple APIs (e.g. newsletter sign-up → Airtable) with small code stubs
 - convert designer-provided Figma specs into clean React or HTML sections
 
-With code review and CI guards in place, these lightweight edits rarely require a specialist front-end dev. That lowers the barrier to choosing a **code-first or hybrid** stack even when head-count is tight and it keeps iteration speed high without sacrificing long term flexibility.
+With code review and CI guards in place, these lightweight edits rarely require a specialist front-end dev. That lowers the barrier to choosing a **code-first or hybrid** stack even when the dev capacity is limited.
 
 ---
 
 ## Conclusion
 
-The tooling spectrum exists for a reason. Every tool has its own strengths and weaknesses. _Builders_ win on speed and design; _CMSs_ excel at structured content; _custom code_ maximizes flexibility; and _hybrid stacks_ aim for the sweet spot between all of it.
+The tooling spectrum exists for a reason. Every tool has its own strengths and weaknesses. _Builders_ win on speed and design; _CMSs_ excel at structured content; _custom code_ maximizes flexibility; and _hybrid stacks_ aim for the sweet spot between all of them.
 
 Ask what will benefit your business the most without forcing you into a corner later. Make the trade-offs explicit, document them, and be ready to switch once the balance shifts. There is, and probably never will be, a one-size-fits-all solution and that’s perfectly fine.
