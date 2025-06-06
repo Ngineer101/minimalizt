@@ -26,7 +26,7 @@ A practical example: customer support teams using AI chatbots to handle routine 
 
 AI isn’t a distant future. It’s here, and it’s spreading into every corner of business: IT, marketing, sales, customer service, product development, and more. AI is no longer confined to a single department. And (unfortunately) if you’re not keeping up, you’re falling behind.
 
-It’s not just about efficiency. Employees who embrace AI are spending the time they save on new, higher-value activities. Meanwhile, some companies are already reducing headcount because of gains from AI-driven automation. But here’s the twist: in areas like IT and product development, companies expect to _increase_ hiring as AI expands what’s possible. In other words, AI isn’t just taking jobs - it’s creating new ones for people who are willing to learn.
+It’s not just about efficiency. Employees who embrace AI are spending the time they save on new, higher-value activities. Meanwhile, some companies are already reducing headcount because of gains from AI-driven automation. But here’s the twist: in areas like IT and product development, some companies expect to _increase_ hiring as AI expands what’s possible. In other words, AI isn’t just taking jobs - it’s creating new ones for people who are willing to learn.
 
 ## Don't wait for official training - just start building
 
@@ -34,7 +34,7 @@ Something most people get wrong is waiting for their company to provide “offic
 
 AI technology is evolving too rapidly for traditional training programs to keep pace. By the time a course is developed, approved, and delivered, the tools have already evolved twice. The people getting ahead aren't waiting - they're diving in and figuring it out themselves.
 
-Start small: use AI to write code for a side project, generate images for your next presentation, or summarize meeting notes and long documents. Create a simple prototype. The key is to make it part of your daily work, and you’ll naturally discover where it fits best in your workflow.
+Start small: use AI to write code for a side project, generate images for your next presentation, or summarize meeting notes and long documents. The key is to make it part of your daily work, and you’ll naturally discover where it fits best in your workflow.
 
 Remember: Nobody is an "expert" yet. This is a new era similar to the early days of the internet. We're all figuring this out as we go. The difference is that some people are actively experimenting while others are waiting for permission or perfect knowledge that will never come.
 
