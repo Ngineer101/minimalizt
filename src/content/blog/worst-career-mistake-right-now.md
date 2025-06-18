@@ -2,7 +2,7 @@
 title: "The worst career mistake you can make right now"
 description: "Let’s be blunt: if you’re ignoring AI, you’re putting your career at risk."
 pubDate: "June 5 2025"
-heroImage: "/blog-cover-7.jpeg"
+heroImage: "/blog-cover-7.jpg"
 tags: ["Career", "Tech"]
 ---
 

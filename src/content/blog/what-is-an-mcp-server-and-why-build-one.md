@@ -2,7 +2,7 @@
 title: "What is an MCP server and why you should build one"
 description: "The Model Context Protocol (MCP) turns your API into a first-class AI tool. Learn what MCP is, how it works, and why building an MCP server today can help grow your product."
 pubDate: "Jun 11 2025"
-heroImage: "/blog-cover-1.jpeg"
+heroImage: "/blog-cover-8.jpg"
 tags: ["AI", "Opinion", "Tech"]
 ---
 

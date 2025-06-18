@@ -2,7 +2,7 @@
 title: "Chat is the new interface"
 description: 'The way we interact with software is changing. Let''s "chat" about it.'
 pubDate: "Apr 19 2025"
-heroImage: "/blog-cover-3.jpeg"
+heroImage: "/blog-cover-3.jpg"
 tags: ["AI", "UX design", "Opinion"]
 ---
 
