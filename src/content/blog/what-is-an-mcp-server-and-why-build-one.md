@@ -3,7 +3,7 @@ title: "What is an MCP server and why you should build one"
 description: "The Model Context Protocol (MCP) turns your API into a first-class AI tool. Learn what MCP is, how it works, and why building an MCP server today can help grow your product."
 pubDate: "Jun 11 2025"
 heroImage: "/blog-cover-8.jpg"
-tags: ["AI", "Opinion", "Tech"]
+tags: ["AI", "Opinion", "Tech", "MCP"]
 ---
 
 If you have used modern AI assistants recently - ChatGPT, Claude, Windsurf, Cursor, etc. - you have probably noticed that they can take actions on your behalf: run a SQL query, create a GitHub issue, or even deploy infrastructure. Behind the scenes, those assistants are not guessing at random HTTP calls, they are invoking well-defined “tools” exposed via the **Model Context Protocol (MCP)** of the integrated platforms.
