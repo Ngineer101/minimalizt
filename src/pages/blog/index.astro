@@ -29,6 +29,7 @@ const posts = (await getCollection("blog")).sort(
         list-style-type: none;
         margin: 0;
         padding: 0;
+        justify-content: space-between; /* Ensure proper alignment for columns */
       }
       ul li {
         width: calc(50% - 1rem);
@@ -117,6 +118,17 @@ const posts = (await getCollection("blog")).sort(
         }
         .date {
           font-size: 0.9rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        main {
+          width: 1200px; /* Adjust container width for large screens */
+        }
+        ul {
+          gap: 1.5rem; /* Adjust gap for better spacing */
+        }
+        ul li {
+          width: calc(33.333% - 1rem); /* Adjust to 3 columns */
         }
       }
     </style>
