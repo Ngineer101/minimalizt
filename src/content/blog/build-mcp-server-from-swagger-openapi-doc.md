@@ -6,7 +6,7 @@ heroImage: "/blog-cover-9.jpg"
 tags: ["AI", "Tech", "MCP"]
 ---
 
-The Model Context Protocol (MCP) is revolutionizing how AI systems interact with external tools and APIs. However, manually creating MCP servers for existing APIs can be time-consuming and error-prone. That's why I built **MCPR** — a CLI tool that automatically generates fully functional MCP servers from Swagger/OpenAPI documents.
+The Model Context Protocol (MCP) is revolutionizing how AI systems interact with external tools and APIs. However, manually creating MCP servers for existing APIs can be time-consuming and error-prone. That's why I built **MCPR** - a CLI tool that automatically generates fully functional MCP servers from Swagger/OpenAPI documents.
 
 ## What is MCPR?
 
@@ -268,6 +268,7 @@ Automatically building generated projects to catch issues early and ensure the o
 ## Future Enhancements
 
 The modular architecture makes it easy to add new features:
+(feel free to submit a PR here: [https://github.com/Ngineer101/mcpr](https://github.com/Ngineer101/mcpr))
 
 - **Authentication support** for API keys, OAuth, and other auth methods.
 - **Multiple transport types** beyond stdio (HTTP, WebSocket).
@@ -277,8 +278,6 @@ The modular architecture makes it easy to add new features:
 
 ## Conclusion
 
-Building MCPR taught me the power of code generation done right. By focusing on a clean architecture, comprehensive type safety, and automated validation, we created a tool that doesn't just generate code - it generates production-ready, maintainable MCP servers that AI systems can immediately use.
+Building MCPR taught me a lot about the internal workings of MCP servers. This tool is intended to reduce the time required to create an MCP server by taking care of as much boilerplate as possible.
 
-The secret sauce is in the details: proper parameter handling, comprehensive error management, automatic dependency management, and post-generation validation. These features transform a simple code generator into a robust development tool that accelerates API integration for the AI era.
-
-Whether you're building AI assistants, automation tools, or any system that needs to interact with existing APIs, MCPR bridges the gap between traditional REST APIs and the emerging world of AI-powered applications through the Model Context Protocol.
+Whether you're building AI assistants, automation tools, or any system that needs to interact with existing APIs, MCPR bridges the gap between traditional REST APIs and AI-powered applications through the Model Context Protocol.
