@@ -12,23 +12,23 @@ Most of these seem obvious in hindsight, but when you're juggling work and leade
 
 ## Hire the right people (who actually care)
 
-This might sound like a cliché, but it's true: hire people who care. [Or as Alexandr Wang put it](https://alexw.substack.com/p/hire): "Hire people who give a shit." People should be proud of their work and invested in what they do.
+This might sound cliché, but it's true: hire people who care. [Or as Alexandr Wang put it](https://alexw.substack.com/p/hire): "Hire people who give a shit." People should be proud of their work and invested in what they do.
 
-**_And by "giving a shit" about work, I don't mean working 12-hour days, 6 days a week until you burn out._** But it is sometimes necessary to walk the extra mile to get a project over the line. This is way easier to do when you care about your work.
+**_And by "giving a shit" about work, I don't mean working 12-hour days, 6 days a week until you burn out._** But sometimes you do need to go the extra mile to get a project over the line. This is much easier when you care about your work.
 
-As a first time lead, I was fortunate enough to be part of the hiring process of many of my team members, either as being the hiring manager and helping out with interviews as a senior engineer (before I got promoted). I'd love to say that we always ended up hiring the perfect people, but that would be wishful thinking. Fortunately, most hires were succesful and we were able to build a high-performing team.
+As a first-time lead, I was fortunate to be involved in the hiring process for many team members, either as the hiring manager or by helping with interviews as a senior engineer (before my promotion). I'd love to say we always hired the perfect people, but that would be wishful thinking. Fortunately, most hires were successful and we built a high-performing team.
 
-After having done more than 40 interviews in the past 3.5 years, these are the things that were really strong signals for success (besides doing a moderately complicated technical assignment):
+After conducting more than 40 interviews in the past 3.5 years, these are the strongest signals for success (besides a moderately challenging technical assignment):
 
-- **Being able to have a constructive discussion despite differing opinions** - this is something that you will inevitably encounter when working with someone who really cares about their job (see next section about opinions and disagreements). And it's fairly easy to evaluate during a code review session of the technical assignment. If someone can constructively defend their opinion with good arguments without being married to their POV, it's a great sign.
+- **Ability to have constructive discussions despite differing opinions** – This is inevitable when working with people who care about their job (see next section). It's easy to evaluate during a code review session. If someone can defend their opinion with good arguments, without being married to their point of view, it's a great sign.
 
-- **Being curious and eager to learn new things** - being able to teach yourself new skills is crucial for being successful in the tech industry. Every good engineer tinkers with something at home or plays around with some exotic tech. Ask them about side-projects or things they built. It's not the end of the world if they don't have any side-projects to share, but it's a strong positive signal if they do.
+- **Curiosity and eagerness to learn new things** – Teaching yourself new skills is crucial in tech. Every good engineer tinkers with something at home or experiments with new exotic tech. Ask about side projects or things they've built. It's not a dealbreaker if they don't have any, but it's a strong positive signal if they do.
 
-- **Being able to communicate simply and effectively** - whether it's written, spoken, sang, or hymned, communication ultimately forms the basis of any working relationship. Your ability to effectively collaborate with someone is directly dependent on how effectively you can communicate through various mediums. This can be evaluated in all the steps of the hiring process, from writing a cover letter, having a video call, to doing a peer code review. If communication with someone doesn't go smoothly, it's a red flag.
+- **Ability to communicate simply and effectively** – Whether written, spoken, sang, or hymned, communication is the basis of any working relationship. Effective collaboration depends on clear communication, which can be evaluated throughout the hiring process. If communication doesn't go smoothly, it's a red flag.
 
-A note on hiring in the AI era: most of these interviews were done before AI tools became mainstream. Today, I would add a requirement for evaluating the effective use of AI tools, as it's quickly becoming a core competency.
+A note on hiring in the AI era: most of these interviews were done before AI tools became mainstream. Today, I would add a requirement for evaluating effective use of AI tools, as it's quickly becoming a core competency.
 
-As I got more settled in my role over the past years, I realized most people don't need to be "managed" in the traditional sense - checking deadlines, chasing tasks, etc. What they need is leadership. If you hire intrinsically motivated people, give them a clear goal and direction, and allow them the freedom to solve interesting problems, they'll thrive. Your job as a manager is to guide them - on career growth, product roadmaps, and tech decisions - not micromanage their day-to-day work.
+As I settled into my role, I realized most people don't need to be "managed" in the traditional sense — checking deadlines, chasing tasks, etc. What they need is leadership. If you hire intrinsically motivated people, give them clear goals and direction, and allow them the freedom to solve interesting problems, they'll thrive. Your job as a manager is to guide them — on career growth, product roadmaps, and tech decisions — not micromanage their day-to-day work.
 
 Hire good people, enable them to take ownership, and your product will flourish. With the right team, it won't feel like managing at all. Instead, it becomes collaboration, where everyone works toward a shared goal.
 
@@ -53,7 +53,7 @@ When we're debating multiple solutions or approaches, I ask:
 - Does it leave the team in a better state afterward?
 - Is it worth the time and effort?
 
-If I can answer yes to these questions for both approaches, then the ultimate choice doesn't matter. If one of these questions is a "no", then it's easy to motivate when a specific solution/approach is not needed.
+If I can answer yes to these questions for both approaches, then the ultimate choice doesn't matter. If one of these questions is a "no", then it's easy to explain why a specific solution or approach isn't needed.
 
 Sometimes, you'll have to compromise for the greater good. And that's okay too. Leadership isn't about winning every argument; it's about making decisions that move the team forward.
 
@@ -67,7 +67,7 @@ I've also learned that tough conversations are easier when you've built a founda
 
 Over the past few years I've had to have many of these tough conversations - from performance reviews, and helping some members switch careers, to telling a team member why they're not getting a promotion just yet (despite them feeling ready for it). What I tried to do during each of these conversations is to be as objective and concrete as possible while still being empathetic.
 
-Especially the conversation around the promotion benefited from me being as concrete as possible. I explained to my team member that while they might feel ready for a promotion, there are still very concrete areas to improve, especially considering the level of seniority that they are aspiring to. Being as concrete as possible in this regard gave my team member confidence that I'm well aware of their current abilities and potential. And it made them realize that there is still some work necessary before taking the next step. We both walked away from that conversation with a renewed level of trust and motivation.
+Especially the conversation around the promotion benefited from me being as concrete as possible. I explained to my team member that while they might feel ready for a promotion, there are still very concrete areas to improve, especially considering the level of seniority they are aspiring to. Being as concrete as possible gave my team member confidence that I'm well aware of their current abilities and potential. And it made them realize that there is still some work necessary before taking the next step. We both walked away from that conversation with a renewed level of trust and motivation.
 
 ## Admit when you're wrong
 
