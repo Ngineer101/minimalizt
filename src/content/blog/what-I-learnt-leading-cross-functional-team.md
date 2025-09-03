@@ -16,25 +16,25 @@ This might sound cliché, but it's true: hire people who care. [Or as Alexandr W
 
 **_And by "giving a shit" about work, I don't mean working 12-hour days, 6 days a week until you burn out._** But sometimes you do need to go the extra mile to get a project over the line. This is much easier when you care about your work.
 
-As a first-time lead, I was fortunate to be involved in the hiring process for many team members, either as the hiring manager or by helping with interviews as a senior engineer (before my promotion). I'd love to say we always hired the perfect people, but that would be wishful thinking. Fortunately, most hires were successful and we built a high-performing team.
+As a first-time lead, I was fortunate to be involved in the hiring process for many team members, either as the hiring manager or by helping with interviews as a senior engineer (before my promotion). I'd love to say we always hired the perfect people, but that would be wishful thinking. Fortunately, most hires were successful, and we built a high-performing team.
 
 After conducting more than 40 interviews in the past 3.5 years, these are the strongest signals for success (besides a moderately challenging technical assignment):
 
 - **Ability to have constructive discussions despite differing opinions** – This is inevitable when working with people who care about their job (see next section). It's easy to evaluate during a code review session. If someone can defend their opinion with good arguments, without being married to their point of view, it's a great sign.
 
-- **Curiosity and eagerness to learn new things** – Teaching yourself new skills is crucial in tech. Every good engineer tinkers with something at home or experiments with new exotic tech. Ask about side projects or things they've built. It's not a dealbreaker if they don't have any, but it's a strong positive signal if they do.
+- **Curiosity and eagerness to learn new things** – Teaching yourself new skills is crucial in tech. Every good engineer tinkers with something at home or experiments with new, exotic tech. Ask about side projects or things they've built. It's not a dealbreaker if they don't have any, but it's a strong positive signal if they do.
 
 - **Ability to communicate simply and effectively** – Whether written, spoken, sang, or hymned, communication is the basis of any working relationship. Effective collaboration depends on clear communication, which can be evaluated throughout the hiring process. If communication doesn't go smoothly, it's a red flag.
 
 A note on hiring in the AI era: most of these interviews were done before AI tools became mainstream. Today, I would add a requirement for evaluating effective use of AI tools, as it's quickly becoming a core competency.
 
-As I settled into my role, I realized most people don't need to be "managed" in the traditional sense — checking deadlines, chasing tasks, etc. What they need is leadership. If you hire intrinsically motivated people, give them clear goals and direction, and allow them the freedom to solve interesting problems, they'll thrive. Your job as a manager is to guide them — on career growth, product roadmaps, and tech decisions — not micromanage their day-to-day work.
+As I settled into my role, I realized most people don't need to be "managed" in the traditional sense - checking deadlines, chasing tasks, etc. What they need is leadership. If you hire intrinsically motivated people, give them clear goals and direction, and allow them the freedom to solve interesting problems, they'll thrive. Your job as a manager is to guide them - on career growth, product roadmaps, and tech decisions - not micromanage their day-to-day work.
 
 Hire good people, enable them to take ownership, and your product will flourish. With the right team, it won't feel like managing at all. Instead, it becomes collaboration, where everyone works toward a shared goal.
 
 ## Disagreement is healthy (and sometimes necessary)
 
-Differing opinions are part of life, especially in field of software engineering. Everyone has a favorite language, framework, or tool they swear is the best. Software engineers are notoriously opinionated, and that's okay.
+Differing opinions are part of life, especially in the field of software engineering. Everyone has a favorite language, framework, or tool they swear is the best. Software engineers are notoriously opinionated, and that's okay.
 
 You don't have to agree with everyone, and not everyone will agree with you. In fact, if your team never disagrees with you as a manager, that's a huge red flag. It could mean they don't trust you enough to voice their opinions or don't feel safe doing so. Either way, it's a problem.
 
@@ -44,7 +44,7 @@ But debating just for the sake of it isn't productive. Sometimes, as a manager, 
 
 ### Handling strong opinions
 
-Over the years, I've worked with some very opinionated people. Here's the heuristic I use to decide whether to say yes or no.
+Over the years, I've worked with some very opinionated people. Here's the heuristic I use to decide whether to say yes or no to a project or feature proposal.
 
 When we're debating multiple solutions or approaches, I ask:
 
@@ -65,13 +65,13 @@ What made a huge difference for me was always approaching these conversations wi
 
 I've also learned that tough conversations are easier when you've built a foundation of trust. If your team knows you have their best interests at heart and share your vision, they're more likely to listen and be open to feedback.
 
-Over the past few years I've had to have many of these tough conversations - from performance reviews, and helping some members switch careers, to telling a team member why they're not getting a promotion just yet (despite them feeling ready for it). What I tried to do during each of these conversations is to be as objective and concrete as possible while still being empathetic.
+Over the past few years, I've had to have many of these tough conversations - from performance reviews, and helping some members switch careers, to telling a team member why they're not getting a promotion just yet (despite them feeling ready for it). What I tried to do during each of these conversations is to be as objective and concrete as possible while still being empathetic.
 
 Especially the conversation around the promotion benefited from me being as concrete as possible. I explained to my team member that while they might feel ready for a promotion, there are still very concrete areas to improve, especially considering the level of seniority they are aspiring to. Being as concrete as possible gave my team member confidence that I'm well aware of their current abilities and potential. And it made them realize that there is still some work necessary before taking the next step. We both walked away from that conversation with a renewed level of trust and motivation.
 
 ## Admit when you're wrong
 
-Nobody's perfect. You'll make mistakes—it's inevitable. Admitting them can make you feel vulnerable, but how you handle them is what truly matters. Taking ownership of your mistakes builds trust and shows your team that you're human and willing to learn.
+Nobody's perfect. You'll make mistakes - it's inevitable. Admitting them can make you feel vulnerable, but how you handle them is what truly matters. Taking ownership of your mistakes builds trust and shows your team that you're human and willing to learn.
 
 More importantly, this is one of your most significant opportunities to influence team culture. If you deflect blame, your team will learn to do the same, fostering a toxic environment. But if you use a mistake as an opportunity to demonstrate accountability, you create a culture where people feel safe to fail, learn, and grow.
 
@@ -81,4 +81,4 @@ After all, innovation often comes from taking risks, and risks sometimes lead to
 
 ## Final Thoughts
 
-As a first-time lead three years ago, I felt pressured to always have everything under control and never make mistakes. I put a lot of pressure on myself to be "perfect" (whatever that means), but I soon realized that's a fool's errand. It's okay to not know everything all the time. What's important is to surround yourself with the right people, keep learning and growing, and be open to constructive change. The rest will follow.
+As a first-time lead three years ago, I felt pressured to always have EVERYTHING under control and NEVER make mistakes. I put a lot of pressure on myself to be "perfect" (whatever that means), but I soon realized that's a fool's errand. It's okay to not know everything all the time. What's important is to surround yourself with the right people, keep learning and growing, and be open to constructive change. The rest will follow.
