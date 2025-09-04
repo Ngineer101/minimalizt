@@ -5,15 +5,17 @@ import { SITE_TITLE } from "../consts";
 
 <header>
   <nav>
-    <h2>
-      <a href="/" class="flex flex-row items-center gap-2">
-        <img src="/logo.jpg" width="48" height="48" alt="Minimalizt logo" />
-        <span class="text-2xl">{SITE_TITLE}</span>
-      </a>
-    </h2>
-    <div class="internal-links">
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+    <div class="nav-start">
+      <h2>
+        <a href="/" class="flex flex-row items-center gap-2">
+          <img src="/logo.jpg" width="48" height="48" alt="Minimalizt logo" />
+          <span class="text-2xl">{SITE_TITLE}</span>
+        </a>
+      </h2>
+      <div class="internal-links">
+        <HeaderLink href="/blog">Blog</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+      </div>
     </div>
     <div class="social-links">
       <a href="https://x.com/nwbotha" target="_blank">
@@ -105,6 +107,14 @@ import { SITE_TITLE } from "../consts";
   .social-links a {
     display: flex;
   }
+  .internal-links {
+    margin-left: 32px;
+  }
+  .nav-start {
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
 
   /* Mobile adjustments */
   @media (max-width: 720px) {
@@ -137,6 +147,13 @@ import { SITE_TITLE } from "../consts";
     .social-links {
       display: none;
     }
+
+    .nav-start {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
   }
 
   @media (max-width: 480px) {
@@ -151,6 +168,13 @@ import { SITE_TITLE } from "../consts";
 
     h2 span.text-2xl {
       font-size: 1.1rem;
+    }
+
+    .nav-start {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
     }
   }
 </style>
