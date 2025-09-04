@@ -16,7 +16,7 @@ This might sound cliché, but it's true: hire people who care. [Or as Alexandr W
 
 **_And by "giving a shit" about work, I don't mean working 12-hour days, 6 days a week until you burn out._** But sometimes you do need to go the extra mile to get a project over the line. This is much easier when you care about your work.
 
-As a first-time lead, I was fortunate to be involved in the hiring process for many team members, either as the hiring manager or by helping with interviews as a senior engineer (before my promotion). I'd love to say we always hired the perfect people, but that would be wishful thinking. Fortunately, most hires were successful, and we built a high-performing team.
+Over the past few years, I was fortunate to be involved in the hiring process for many team members, either as the hiring manager or by helping with interviews as a senior engineer (before my promotion). I'd love to say we always hired the perfect people, but that would be wishful thinking. Fortunately, most hires were successful, and we built a high-performing team.
 
 After conducting more than 40 interviews in the past 3.5 years, these are the strongest signals for success (besides a moderately challenging technical assignment):
 
@@ -24,7 +24,7 @@ After conducting more than 40 interviews in the past 3.5 years, these are the st
 
 - **Curiosity and eagerness to learn new things** – Teaching yourself new skills is crucial in tech. Every good engineer tinkers with something at home or experiments with new, exotic tech. Ask about side projects or things they've built. It's not a dealbreaker if they don't have any, but it's a strong positive signal if they do.
 
-- **Ability to communicate simply and effectively** – Whether written, spoken, sang, or hymned, communication is the basis of any working relationship. Effective collaboration depends on clear communication, which can be evaluated throughout the hiring process. If communication doesn't go smoothly, it's a red flag.
+- **Ability to communicate simply and effectively** – Whether written, spoken, sung, or hymned, communication is the basis of any working relationship. Effective collaboration depends on clear communication, which can be evaluated throughout the hiring process. If communication doesn't go smoothly, it's a red flag.
 
 A note on hiring in the AI era: most of these interviews were done before AI tools became mainstream. Today, I would add a requirement for evaluating effective use of AI tools, as it's quickly becoming a core competency.
 
@@ -55,7 +55,7 @@ When we're debating multiple solutions or approaches, I ask:
 
 If I can answer yes to these questions for both approaches, then the ultimate choice doesn't matter. If one of these questions is a "no", then it's easy to explain why a specific solution or approach isn't needed.
 
-Sometimes, you'll have to compromise for the greater good. And that's okay too. Leadership isn't about winning every argument; it's about making decisions that move the team forward.
+It's a simple framework, and there is definitely nuance to each situation, but these questions have helped me reach a decision quickly in most cases. Sometimes, you'll have to compromise for the greater good. That's okay too. Leadership isn't about winning every argument; it's about making decisions that move the team forward.
 
 ## Tough conversations are part of the job
 
@@ -65,7 +65,7 @@ What made a huge difference for me was always approaching these conversations wi
 
 I've also learned that tough conversations are easier when you've built a foundation of trust. If your team knows you have their best interests at heart and share your vision, they're more likely to listen and be open to feedback.
 
-Over the past few years, I've had to have many of these tough conversations - from performance reviews, and helping some members switch careers, to telling a team member why they're not getting a promotion just yet (despite them feeling ready for it). What I tried to do during each of these conversations is to be as objective and concrete as possible while still being empathetic.
+Over the past few years, I've had to have many of these tough conversations - from performance reviews, and helping some team members switch careers, to telling a team member why they're not getting a promotion just yet (despite them feeling ready for it). What I tried to do during each of these conversations is to be as objective and concrete as possible while still being empathetic.
 
 Especially the conversation around the promotion benefited from me being as concrete as possible. I explained to my team member that while they might feel ready for a promotion, there are still very concrete areas to improve, especially considering the level of seniority they are aspiring to. Being as concrete as possible gave my team member confidence that I'm well aware of their current abilities and potential. And it made them realize that there is still some work necessary before taking the next step. We both walked away from that conversation with a renewed level of trust and motivation.
 
@@ -75,9 +75,9 @@ Nobody's perfect. You'll make mistakes - it's inevitable. Admitting them can mak
 
 More importantly, this is one of your most significant opportunities to influence team culture. If you deflect blame, your team will learn to do the same, fostering a toxic environment. But if you use a mistake as an opportunity to demonstrate accountability, you create a culture where people feel safe to fail, learn, and grow.
 
-For example, I once led a project to rebuild a checkout flow. It’s easy for "rebuilding" projects like these to get carried away with well-intentioned requests like “can you also fix this…”. My mistake was not being critical enough about these requests from the start. Two weeks before launch, it was clear we wouldn't meet the deadline. I sat down with the team, admitted my mistake in letting the scope grow, and we critically re-evaluated every task. We realized most could be postponed. By admitting the error and working together, we launched on time and learned a valuable lesson in scope management. This reinforced that we're a team that solves problems, not a team that assigns blame.
+For example, I once led a project to rebuild a checkout flow. It’s easy for "rebuilding" projects like these to get carried away with well-intentioned requests like “_can you also fix this…_” or "_can you optimize this while you're busy..._". My mistake was not being critical enough about these requests from the start. Two weeks before launch, it was clear we wouldn't meet the deadline. I sat down with the team, admitted my mistake in letting the scope grow, and we critically re-evaluated every task. We realized most of the open tasks could be postponed. By admitting the error and working together, we launched on time and learned a valuable lesson in scope management. This reinforced that we're a team that solves problems, not a team that assigns blame.
 
-After all, innovation often comes from taking risks, and risks sometimes lead to failure. What matters is how you recover. That said, if you're making more mistakes than successes, this advice doesn't apply. Too many mistakes will erode trust, and rebuilding it will be an uphill battle.
+After all, innovation often comes from taking risks, and risks sometimes lead to failure. What matters is how you recover. **That said, if you're making more mistakes than successes, this advice doesn't apply. Too many mistakes will erode trust, and rebuilding it will be an uphill battle.**
 
 ## Final Thoughts
 
