@@ -6,9 +6,9 @@ heroImage: "/blog-cover-10.jpeg"
 tags: ["AI", "Tech"]
 ---
 
-The web development landscape is experiencing a fundamental shift. While most applications bolt AI features onto existing architectures, a new approach is needed: the **AI-native application**, where intelligence is part of the core architecture from day one.
+The web development landscape is experiencing a fundamental shift. While most applications bolt AI features onto existing architectures, with varying degrees of success, I believe a new approach is needed where intelligence is part of the core architecture from day one - a truly AI-native approach.
 
-After building several "AI-powered" applications and wrestling with the complexity of retrofitting AI, I've identified six core principles for building a truly AI-native architecture. These aren't just about "enhancing" apps with AI; they're about designing them around intelligent capabilities from the ground up.
+After building several "AI-powered" applications over the past years and wrestling with the complexity of retrofitting AI, I've identified six core principles for building a truly AI-native architecture. These aren't just about "enhancing" apps with AI; they're about designing them around intelligent capabilities from the ground up.
 
 ## The Problem with Bolt-On AI
 
@@ -17,10 +17,10 @@ Most applications today treat AI as an afterthought. This is understandable, as 
 - **Fragmented User Experience**: Users are forced to switch between "normal" app features and "AI" features.
 - **Data Silos**: The AI has no context. It's blind to your application's data and user interactions.
 - **Performance Bottlenecks**: AI operations slow everything down because they weren't part of the original design.
-- **Security Gaps**: New AI features often bypass existing security models and access controls.
+- **Security Gaps**: To address the abovementioned performance issues, new AI features often bypass existing security models and access controls.
 - **State Management Chaos**: Conversation history and AI interactions are disconnected from the application's state.
 
-To fix this, we need to stop adding AI and start building with it. These principles are a tech-agnostic guide for doing just that.
+To fix this, we need to stop adding AI after the fact and start building with it. These principles are a tech-agnostic guide for doing just that.
 
 ## Six Principles of AI-Native Architecture
 
@@ -39,12 +39,12 @@ Instead of building search as a separate feature, embeddings become part of your
 
 #### How does this look in practice?
 
-- **Automated Embedding Pipelines**: When a user uploads a new document, a background job is immediately triggered. This job extracts the text, chunks it into smaller pieces (to improve embedding accuracy for long documents), and calls an embedding model to generate vectors for each chunk. These vectors are then stored in a vector database or a database with vector support (like PostgreSQL with `pgvector`) alongside a reference to the original document and its metadata.
+- **Automated Embedding Pipelines**: When a user uploads a new document, a background job is immediately triggered. This job extracts the text, chunks it into smaller pieces (to improve embedding accuracy for long documents), and calls an embedding model to generate vectors for each chunk. These vectors are then stored in a vector database or a database with vector support (like PostgreSQL with `pgvector`), alongside a reference to the original document and its metadata.
 - **Semantic Querying**: When a user types "show me last week's meeting notes about the marketing campaign," the application takes that query, generates an embedding for it, and performs a similarity search against the vector store. The results are not just keywords, but documents that are semantically related to the query, even if they don't contain the exact words.
 
 ### 2. Security Is Not an Add-On
 
-AI applications must enforce your existing security boundaries, especially in **multi-tenant applications**. Since the [introduction of MCPs](https://minimalizt.dev/blog/what-is-an-mcp-server-and-why-build-one/), there have been quite a few [horror stories about data being wrongfully accessed](https://www.bleepingcomputer.com/news/security/asana-warns-mcp-ai-feature-exposed-customer-data-to-other-orgs/).
+AI applications must enforce your existing security boundaries, especially in **multi-tenant applications**. Since the [introduction of MCP servers](https://minimalizt.dev/blog/what-is-an-mcp-server-and-why-build-one/), there have been quite a few [horror stories about data being wrongfully accessed](https://www.bleepingcomputer.com/news/security/asana-warns-mcp-ai-feature-exposed-customer-data-to-other-orgs/).
 
 In an AI-native architecture:
 
@@ -53,7 +53,7 @@ In an AI-native architecture:
 - Conversation history is properly segmented by user and tenant.
 - AI-generated content follows the same access controls as human-generated content.
 
-This isn't just about authenticating AI endpoints. It's about making AI operations security-aware by default. When an AI model searches for context, it must operate within the same security model as the rest of your application. It should be **impossible** for it to access data it doesn't have permission to see.
+This isn't just about authenticating AI endpoints (which should always be done). It's about making AI operations security-aware by default. When an AI model searches for context, it must operate within the same security model as the rest of your application. It should be **impossible** for it to access data it doesn't have permission to see.
 
 #### How does this look in practice?
 
@@ -62,19 +62,21 @@ This isn't just about authenticating AI endpoints. It's about making AI operatio
 
 ### 3. Be AI Model Agnostic
 
-The AI landscape changes at an incredible pace. New models are being launched on an almost monthly basis. Your architecture must abstract away specific AI providers. This allows you to:
+The AI landscape changes at an incredible pace. New models are being launched on an almost monthly basis. Your architecture must abstract away specific AI providers.
+
+This allows you to:
 
 - Switch between OpenAI, Anthropic, local models, or edge AI without rewriting code.
 - Use the right tool for the job: cheap models for simple tasks, powerful models for complex generation.
 - Immediately adopt new capabilities as they emerge.
 - Avoid vendor lock-in.
 
-Build service layers that expose capabilities (embedding, completion, analysis), not provider-specific APIs. Your application shouldn't care _which_ model is doing the work. Services like [Vercel's AI gateway](https://vercel.com/docs/ai-gateway) are already trying to solve this problem as a standalone solution.
+Build service layers that expose capabilities (embedding, completion, analysis), not provider-specific APIs. Your application shouldn't care _which_ model is doing the work. Services like [Vercel's AI gateway](https://vercel.com/docs/ai-gateway) are already trying to solve this problem as standalone solutions.
 
 #### How does this look in practice?
 
 - **Internal Service Abstraction**: Instead of calling specific AI providers directly, create an internal service that abstracts the implementation details. Your code calls a generic interface like `CompletionService.generate()`, which internally decides which provider to use based on your configuration.
-- **Capability-Based Routing**: Your abstraction layer can make intelligent decisions about which model to use based on the task. For example, using a fast, cheap model for simple tasks and a more powerful model for complex generation. If a provider is unavailable, the abstraction layer can implement fallback logic to switch to an alternative provider seamlessly.
+- **Capability-Based Routing**: Your abstraction layer can make intelligent decisions about which model to use based on the task. For example, use a fast, cheap model for simple tasks and a more powerful model for complex generation. If a provider is unavailable, the abstraction layer can implement fallback logic to switch to an alternative provider seamlessly.
 
 ### 4. State Is Data - Persist Everything
 
@@ -106,7 +108,7 @@ The goal is a seamless experience where users don't have to think about whether 
 
 #### How does this look in practice?
 
-- **Tool-Using Agents**: When a user says "Draft an email about Q3 results and attach the latest report," the system recognizes two distinct actions: finding the report and drafting the email. Then, based on appropriate definitions of your API (possibly through a Model context protocol (MCP) server), it orchestrates these steps automatically. This is an ideal use case for a tool-using agent and [MCP server](https://minimalizt.dev/blog/what-is-an-mcp-server-and-why-build-one/).
+- **Tool-Using Agents**: When a user says "Draft an email about Q3 results and attach the latest report," the system recognizes two distinct actions: finding the report and drafting the email. Then, based on appropriate definitions of your API (possibly through a Model Context Protocol (MCP) server), it orchestrates these steps automatically. This is an ideal use case for a tool-using agent and [MCP server](https://minimalizt.dev/blog/what-is-an-mcp-server-and-why-build-one/).
 - **Hybrid Search**: Combine vector search with traditional queries to provide comprehensive results. A query like "tasks assigned to me about Project Phoenix" should leverage both semantic search and database filtering.
 
 ### 6. Build on a Temporal Data Architecture
@@ -131,7 +133,7 @@ Applications built with these principles deliver a fundamentally better user exp
 
 **Seamless Intelligence**: AI feels integrated, not bolted-on. Users interact naturally without switching between "AI mode" and "normal mode."
 
-**Contextual Awareness**: The AI has full context of user data, permissions, and history, leading to more relevant and personalized outcomes.
+**Contextual Awareness**: The AI has full context of user data, permissions, and history, leading to more relevant and personalized experiences and responses.
 
 **Performance at Scale**: With an architecture designed for AI, features don't become performance bottlenecks.
 
@@ -141,13 +143,7 @@ Applications built with these principles deliver a fundamentally better user exp
 
 ## The Path Forward
 
-Building AI-native requires a mindset shift from "adding AI features" to "designing for AI." This means:
-
-- Treating embeddings and semantic search as infrastructure.
-- Designing data models with AI operations in mind from the start.
-- Building persistent state management for all AI interactions.
-- Creating security models that automatically cover AI operations.
-- Planning for temporal queries and conversation branching.
+Building AI-native requires a mindset shift from "adding AI features" to "designing for AI."
 
 The tools to support this are maturing quickly. Vector databases are becoming standard, and new frameworks are emerging for AI-native development.
 
