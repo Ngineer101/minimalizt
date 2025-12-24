@@ -1,0 +1,224 @@
+---
+// Theme toggle component - handles light/dark mode switching
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  aria-label="Toggle dark mode"
+  title="Toggle dark mode"
+>
+  <span class="toggle-track">
+    <span class="icon sun-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2"></path>
+        <path d="M12 20v2"></path>
+        <path d="m4.93 4.93 1.41 1.41"></path>
+        <path d="m17.66 17.66 1.41 1.41"></path>
+        <path d="M2 12h2"></path>
+        <path d="M20 12h2"></path>
+        <path d="m6.34 17.66-1.41 1.41"></path>
+        <path d="m19.07 4.93-1.41 1.41"></path>
+      </svg>
+    </span>
+    <span class="icon moon-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+      </svg>
+    </span>
+    <span class="toggle-thumb"></span>
+  </span>
+</button>
+
+<style>
+  #theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toggle-track {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 52px;
+    height: 26px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 13px;
+    padding: 0 4px;
+    transition:
+      background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    z-index: 1;
+    transition:
+      color 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  /* Light mode: sun is active (emphasized), moon is dimmed */
+  .sun-icon {
+    color: #f59e0b;
+    opacity: 1;
+  }
+
+  .moon-icon {
+    color: var(--text-secondary);
+    opacity: 0.5;
+  }
+
+  /* Dark mode: moon is active (emphasized), sun is dimmed */
+  :global(.dark) .sun-icon {
+    color: var(--text-secondary);
+    opacity: 0.5;
+  }
+
+  :global(.dark) .moon-icon {
+    color: #7c3aed;
+    opacity: 1;
+  }
+
+  .toggle-thumb {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-primary);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease;
+  }
+
+  /* Dark mode: move thumb to the right */
+  :global(.dark) .toggle-thumb {
+    transform: translateX(26px);
+  }
+
+  #theme-toggle:hover .toggle-track {
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 720px) {
+    .toggle-track {
+      width: 48px;
+      height: 24px;
+      border-radius: 12px;
+    }
+
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .icon svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .toggle-thumb {
+      width: 18px;
+      height: 18px;
+      top: 2px;
+      left: 2px;
+    }
+
+    :global(.dark) .toggle-thumb {
+      transform: translateX(24px);
+    }
+  }
+</style>
+
+<script is:inline>
+  // Theme initialization and toggle logic
+  (function () {
+    const storageKey = "theme-preference";
+
+    function getColorPreference() {
+      const stored = localStorage.getItem(storageKey);
+      if (stored) return stored;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+
+    function setPreference(theme) {
+      localStorage.setItem(storageKey, theme);
+      reflectPreference(theme);
+    }
+
+    function reflectPreference(theme) {
+      document.documentElement.classList.toggle("dark", theme === "dark");
+      document
+        .querySelector("#theme-toggle")
+        ?.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Switch to light mode" : "Switch to dark mode",
+        );
+      // Dispatch custom event for React components to listen to
+      window.dispatchEvent(
+        new CustomEvent("theme-change", { detail: { theme } }),
+      );
+    }
+
+    // Set theme immediately on page load (before render)
+    const theme = getColorPreference();
+    reflectPreference(theme);
+
+    // Setup toggle button after DOM is ready
+    window.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.querySelector("#theme-toggle");
+      toggle?.addEventListener("click", () => {
+        const currentTheme = document.documentElement.classList.contains("dark")
+          ? "dark"
+          : "light";
+        setPreference(currentTheme === "dark" ? "light" : "dark");
+      });
+    });
+
+    // Sync with system preference changes
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", ({ matches }) => {
+        if (!localStorage.getItem(storageKey)) {
+          reflectPreference(matches ? "dark" : "light");
+        }
+      });
+  })();
+</script>
