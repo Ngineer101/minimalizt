@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import PulsingBackground from "../components/PulsingBackground.tsx";
 
 type Props = CollectionEntry<"blog">["data"];
 
@@ -15,6 +16,14 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
   <head>
     <BaseHead title={title} description={description} image={heroImage} />
     <style>
+      /* Ensure content sits above the pulsing background */
+      body > :global(header),
+      body > main,
+      body > :global(footer) {
+        position: relative;
+        z-index: 100;
+      }
+
       main {
         width: calc(100% - 2em);
         max-width: 100%;
@@ -33,8 +42,28 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
         width: 780px;
         max-width: calc(100% - 2em);
         margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
+        padding: 2em;
+        color: var(--text-primary);
+        background-color: var(--bg-primary);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 10;
+      }
+
+      @media (max-width: 720px) {
+        .prose {
+          width: 100%;
+          max-width: 100%;
+          border-radius: 0;
+          box-shadow: none;
+          padding: 1em;
+        }
+
+        main {
+          width: 100%;
+          padding: 0;
+        }
       }
       .title {
         margin-bottom: 1em;
@@ -44,10 +73,11 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
       }
       .title h1 {
         margin: 0 0 0.5em 0;
+        color: var(--text-heading);
       }
       .date {
         margin-bottom: 0.5em;
-        color: rgb(var(--gray));
+        color: var(--text-secondary);
       }
       .last-updated-on {
         font-style: italic;
@@ -76,6 +106,7 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
   </head>
 
   <body>
+    <PulsingBackground client:load />
     <Header />
     <main>
       <article>
