@@ -26,7 +26,7 @@ const SETTINGS = {
   lightRadiusMultiplier: 0.875,
   lightConcentration: 0.03,
   persistenceFactor: 0.02,
-  gridScaleFactor: 1.0,
+  gridScaleFactor: 0.35,
 };
 
 export default function PulsingBackground() {
@@ -213,11 +213,22 @@ export default function PulsingBackground() {
       const rows = ~~(h / unit_y) + 2;
       const cols = ~~(w / unit_x) + 2;
 
+      // Account for high-DPI displays
+      const dpr = window.devicePixelRatio || 1;
+
       for (let i = 0; i < canvases.length; i++) {
-        canvases[i].width = w;
-        canvases[i].height = h;
+        // Set canvas buffer size to match device pixels
+        canvases[i].width = w * dpr;
+        canvases[i].height = h * dpr;
+        // Keep CSS size the same
+        canvases[i].style.width = w + "px";
+        canvases[i].style.height = h + "px";
         const context = canvases[i].getContext("2d");
-        if (context) ctx[i] = context;
+        if (context) {
+          // Scale all drawing operations by DPR
+          context.scale(dpr, dpr);
+          ctx[i] = context;
+        }
       }
 
       grid = new Grid(rows, cols);
