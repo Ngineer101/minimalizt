@@ -197,20 +197,30 @@
       );
     }
 
+    function setupToggle() {
+      const toggle = document.querySelector("#theme-toggle");
+      if (toggle && !toggle.dataset.initialized) {
+        toggle.dataset.initialized = "true";
+        toggle.addEventListener("click", () => {
+          const currentTheme = document.documentElement.classList.contains(
+            "dark",
+          )
+            ? "dark"
+            : "light";
+          setPreference(currentTheme === "dark" ? "light" : "dark");
+        });
+      }
+    }
+
     // Set theme immediately on page load (before render)
     const theme = getColorPreference();
     reflectPreference(theme);
 
     // Setup toggle button after DOM is ready
-    window.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.querySelector("#theme-toggle");
-      toggle?.addEventListener("click", () => {
-        const currentTheme = document.documentElement.classList.contains("dark")
-          ? "dark"
-          : "light";
-        setPreference(currentTheme === "dark" ? "light" : "dark");
-      });
-    });
+    window.addEventListener("DOMContentLoaded", setupToggle);
+
+    // Re-setup on view transitions navigation
+    document.addEventListener("astro:page-load", setupToggle);
 
     // Sync with system preference changes
     window

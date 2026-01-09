@@ -4,7 +4,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
-<header>
+<header transition:name="site-header" transition:persist>
   <nav>
     <div class="nav-start">
       <h2>

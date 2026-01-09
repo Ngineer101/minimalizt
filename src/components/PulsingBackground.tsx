@@ -344,12 +344,14 @@ export default function PulsingBackground() {
 
   return (
     <div
+      data-pulsing-background
       style={{
         position: "fixed",
         inset: 0,
         backgroundColor: isDark ? DARK_BG : LIGHT_BG,
         zIndex: 0,
         transition: "background-color 0.3s ease",
+        viewTransitionName: "none",
       }}
     >
       <canvas

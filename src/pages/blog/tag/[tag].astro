@@ -5,6 +5,7 @@ import Footer from "../../../components/Footer.astro";
 import { SITE_TITLE } from "../../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../../components/FormattedDate.astro";
+import PulsingBackground from "../../../components/PulsingBackground.tsx";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -156,9 +157,10 @@ const { tag, posts } = Astro.props;
     </style>
   </head>
   <body>
+    <PulsingBackground client:load />
     <Header />
-    <main>
-      <section>
+    <main transition:name="main-content">
+      <section transition:name="page-title">
         <div class="tag-header">
           <h1>#{tag}</h1>
           <p>

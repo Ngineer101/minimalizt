@@ -108,10 +108,10 @@ const { title, description, pubDate, updatedDate, heroImage, tags } =
   <body>
     <PulsingBackground client:load />
     <Header />
-    <main>
+    <main transition:name="main-content">
       <article>
-        <div class="prose">
-          <div class="title">
+        <div class="prose" transition:name="blog-content">
+          <div class="title" transition:name="page-title">
             <div class="date">
               {pubDate && <FormattedDate date={pubDate} />}
               {

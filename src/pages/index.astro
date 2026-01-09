@@ -21,12 +21,12 @@ const posts = (await getCollection("blog"))
   <body>
     <PulsingBackground client:load />
     <Header />
-    <main>
+    <main transition:name="main-content">
       <section class="hero-section">
         <h1 class="sr-only">Welcome to Minimalizt Dev</h1>
       </section>
 
-      <section class="latest-posts">
+      <section class="latest-posts" transition:name="page-title">
         <h2>Latest Posts</h2>
         <div class="post-grid">
           {

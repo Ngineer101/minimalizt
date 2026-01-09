@@ -145,8 +145,8 @@ const posts = (await getCollection("blog")).sort(
   <body>
     <PulsingBackground client:load />
     <Header />
-    <main>
-      <section>
+    <main transition:name="main-content">
+      <section transition:name="page-title">
         <ul>
           {
             posts.map((post) => (
